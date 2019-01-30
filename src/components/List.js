@@ -3,31 +3,48 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
 import Card from "components/Card";
+import { createCard } from "actions/cards";
+import { attachToList } from "actions/lists";
 
 const List = props => {
-  const { id, name } = props;
+  const { id, name, cardIds } = props;
 
-  const cards = props.cards
-    .filter(card => card.listId === id)
-    .sort((card1, card2) => card1.order - card2.order)
-    .map(card => <Card key={card.id} {...card} />);
+  const handleAddCard = e => {
+    const newCard = props.createCard("New card");
+    props.attachToList(newCard.payload.id, id);
+  };
+
+  const renderCards = () => {
+    return cardIds.map(cardId => {
+      const cardProps = props.cards.find(card => card.id === cardId);
+      return <Card key={cardId} {...cardProps} />;
+    });
+  };
+
   return (
     <div className="list">
       <div className="list__header">{name}</div>
-      <div className="list__content">{cards}</div>
+      <div className="list__content">{renderCards()}</div>
+      <div className="list__add">
+        <span className="list__add__button" onClick={handleAddCard}>
+          + Add another card
+        </span>
+      </div>
     </div>
   );
 };
 
 List.propTypes = {
   id: PropTypes.number.isRequired,
-  order: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   cards: PropTypes.array.isRequired
 };
-
 const mapStateToProps = state => ({
+  lists: state.lists,
   cards: state.cards
 });
 
-export default connect(mapStateToProps)(List);
+export default connect(
+  mapStateToProps,
+  { createCard, attachToList }
+)(List);

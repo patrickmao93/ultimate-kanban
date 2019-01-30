@@ -6,11 +6,18 @@ $color-secondary-light: #ffffff;
 $color-secondary-dark: #babdbe;
 $color-text-on-p: #ffffff;
 $color-text-on-s: #000000;
+$color-text-on-s-soft: #444;
 
 $font-primary: sans-serif;
 
 body {
   font-family: $font-primary;
+}
+
+.click-catcher {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
 .app {
@@ -38,8 +45,27 @@ body {
     font-weight: bold;
     padding: 14px;
   }
+
+  &__add {
+    cursor: pointer;
+    color: $color-text-on-s-soft;
+    &__button {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 14px;
+      width: 100%;
+      &:hover {
+        background: $color-secondary;
+      }
+    }
+  }
 }
 
 .card {
-  padding: 10px;
+  cursor: pointer;
+  padding: 14px;
+
+  &:hover {
+    background: $color-secondary;
+  }
 }

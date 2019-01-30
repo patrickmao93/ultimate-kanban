@@ -2,6 +2,12 @@ body {
   font-family: sans-serif;
 }
 
+.click-catcher {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
 .app {
   width: 100vw;
   height: 100vh;
@@ -25,9 +31,26 @@ body {
   font-weight: bold;
   padding: 14px;
 }
+.list__add {
+  cursor: pointer;
+  color: #444;
+}
+.list__add__button {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 14px;
+  width: 100%;
+}
+.list__add__button:hover {
+  background: #eceff1;
+}
 
 .card {
-  padding: 10px;
+  cursor: pointer;
+  padding: 14px;
+}
+.card:hover {
+  background: #eceff1;
 }
 
 /*# sourceMappingURL=index.css.map */
