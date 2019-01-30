@@ -1,25 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import orange from "@material-ui/core/colors/orange";
 
 import Root from "./Root";
 import App from "./components/App";
+import initialState from "initialState";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: orange,
-    secondary: orange
-  }
-});
+import "reset-css";
+import "styles/css/index.css";
 
 ReactDOM.render(
-  <Root>
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </MuiThemeProvider>
+  <Root initialState={initialState}>
+    <App />
   </Root>,
   document.getElementById("root")
 );

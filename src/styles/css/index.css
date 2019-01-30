@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.board {
+  padding: 20px;
+  max-width: 1000px;
+}
+.board__content {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  min-width: 250px;
+  border: 1px solid #eceff1;
+  margin-right: 20px;
+}
+.list__header {
+  font-weight: bold;
+  padding: 14px;
+}
+
+.card {
+  padding: 10px;
+}
+
+/*# sourceMappingURL=index.css.map */

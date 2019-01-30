@@ -1,0 +1,45 @@
+$color-primary: #263238;
+$color-primary-light: #4f5b62;
+$color-primary-dark: #000a12;
+$color-secondary: #eceff1;
+$color-secondary-light: #ffffff;
+$color-secondary-dark: #babdbe;
+$color-text-on-p: #ffffff;
+$color-text-on-s: #000000;
+
+$font-primary: sans-serif;
+
+body {
+  font-family: $font-primary;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.board {
+  padding: 20px;
+  max-width: 1000px;
+  &__header {
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.list {
+  min-width: 250px;
+  border: 1px solid $color-secondary;
+  margin-right: 20px;
+
+  &__header {
+    font-weight: bold;
+    padding: 14px;
+  }
+}
+
+.card {
+  padding: 10px;
+}
