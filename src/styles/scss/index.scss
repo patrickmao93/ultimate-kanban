@@ -14,12 +14,6 @@ body {
   font-family: $font-primary;
 }
 
-.click-catcher {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}
-
 .app {
   width: 100vw;
   height: 100vh;
@@ -32,7 +26,6 @@ body {
   }
   &__content {
     display: flex;
-    align-items: center;
   }
 }
 
@@ -64,8 +57,19 @@ body {
 .card {
   cursor: pointer;
   padding: 14px;
-
   &:hover {
     background: $color-secondary;
+  }
+  .editable {
+    border: none;
+    outline: none;
+    padding: 10px;
+    background: none;
+    border-bottom: 3px solid transparent;
+
+    &--editing {
+      background: $color-secondary-light;
+      border-bottom: 3px solid $color-primary;
+    }
   }
 }

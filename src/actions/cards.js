@@ -7,8 +7,22 @@ export const createCard = content => {
     type: actionTypes.CREATE_CARD,
     payload: {
       id: uuid(),
-      editing: false,
+      editing: true,
       content
     }
+  };
+};
+
+export const updateCard = card => {
+  return {
+    type: actionTypes.UPDATE_CARD,
+    payload: card
+  };
+};
+
+export const deleteCard = id => {
+  return {
+    type: actionTypes.DELETE_CARD,
+    payload: id
   };
 };

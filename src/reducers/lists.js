@@ -21,7 +21,6 @@ export default (state = defaultState, action) => {
     case actionTypes.ATTACH_TO_LIST:
       const { listId, cardId } = action.payload;
       const newState = state.slice(0);
-      console.log(newState);
       newState.find(list => list.id === listId).cardIds.push(cardId);
       return newState;
 

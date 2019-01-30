@@ -2,12 +2,6 @@ body {
   font-family: sans-serif;
 }
 
-.click-catcher {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}
-
 .app {
   width: 100vw;
   height: 100vh;
@@ -19,7 +13,6 @@ body {
 }
 .board__content {
   display: flex;
-  align-items: center;
 }
 
 .list {
@@ -51,6 +44,17 @@ body {
 }
 .card:hover {
   background: #eceff1;
+}
+.card .editable {
+  border: none;
+  outline: none;
+  padding: 10px;
+  background: none;
+  border-bottom: 3px solid transparent;
+}
+.card .editable--editing {
+  background: #ffffff;
+  border-bottom: 3px solid #263238;
 }
 
 /*# sourceMappingURL=index.css.map */

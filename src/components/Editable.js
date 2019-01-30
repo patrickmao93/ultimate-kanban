@@ -1,25 +1,43 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 class Editable extends React.Component {
-  handleInput = e => {
-    if (e.type === "keypress" && e.key !== "enter") {
-      return;
-    }
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    editing: PropTypes.bool,
+    content: PropTypes.string,
+    onEdit: PropTypes.func.isRequired,
+    onInputClick: PropTypes.func.isRequired
+  };
+
+  handleFinishEdit = e => {
+    if (e.type === "keypress" && e.key !== "enter") return;
+
+    this.props.onEdit(this.props.id, e.target.value);
   };
 
   renderValue = () => {
     return (
       <input
         type="text"
-        onClick={this.props.handleInputClick}
-        defaultValue={this.props.value}
+        className="editable"
+        onClick={() => this.props.onInputClick(this.props.id)}
+        defaultValue={this.props.content}
         readOnly
       />
     );
   };
 
   renderEdit = () => {
-    return <input type="text" onKeyPress={this.handleInput} />;
+    return (
+      <input
+        type="text"
+        className="editable editable--editing"
+        onKeyPress={this.handleFinishEdit}
+        onBlur={this.handleFinishEdit}
+        defaultValue={this.props.content}
+      />
+    );
   };
 
   render() {
