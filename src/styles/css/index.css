@@ -11,8 +11,12 @@ body {
   padding: 20px;
   max-width: 1000px;
 }
+.board__header {
+  padding: 14px;
+}
 .board__content {
   display: flex;
+  align-items: flex-start;
 }
 
 .list {

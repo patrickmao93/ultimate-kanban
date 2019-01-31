@@ -23,9 +23,11 @@ body {
   padding: 20px;
   max-width: 1000px;
   &__header {
+    padding: 14px;
   }
   &__content {
     display: flex;
+    align-items: flex-start;
   }
 }
 

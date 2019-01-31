@@ -7,7 +7,7 @@ export const createCard = content => {
     type: actionTypes.CREATE_CARD,
     payload: {
       id: uuid(),
-      editing: true,
+      editing: false,
       content
     }
   };

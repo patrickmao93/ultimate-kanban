@@ -11,7 +11,7 @@ class Editable extends React.Component {
   };
 
   handleFinishEdit = e => {
-    if (e.type === "keypress" && e.key !== "enter") return;
+    if (e.type === "keypress" && e.key !== "Enter") return;
 
     this.props.onEdit(this.props.id, e.target.value);
   };

@@ -5,6 +5,8 @@
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
+    "react-dnd": "^7.0.2",
+    "react-dnd-html5-backend": "^7.0.2",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.3",
