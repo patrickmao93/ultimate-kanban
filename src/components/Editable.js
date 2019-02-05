@@ -4,14 +4,26 @@ import { PropTypes } from "prop-types";
 class Editable extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    editing: PropTypes.bool,
+    editing: PropTypes.bool.isRequired,
     content: PropTypes.string,
     onEdit: PropTypes.func.isRequired,
     onInputClick: PropTypes.func.isRequired
   };
 
+  state = { beforeEdit: "" };
+
+  onInputClick = e => {
+    this.setState({ beforeEdit: e.target.value });
+    this.props.onInputClick(this.props.id);
+  };
+
   handleFinishEdit = e => {
-    if (e.type === "keypress" && e.key !== "Enter") return;
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== "Escape") return;
+
+    if (e.key === "Escape") {
+      this.props.onEdit(this.props.id, this.state.beforeEdit); // BUG: doesn't return input to original state
+      return;
+    }
 
     this.props.onEdit(this.props.id, e.target.value);
   };
@@ -21,7 +33,7 @@ class Editable extends React.Component {
       <input
         type="text"
         className="editable"
-        onClick={() => this.props.onInputClick(this.props.id)}
+        onClick={this.onInputClick}
         defaultValue={this.props.content}
         readOnly
       />
@@ -33,7 +45,7 @@ class Editable extends React.Component {
       <input
         type="text"
         className="editable editable--editing"
-        onKeyPress={this.handleFinishEdit}
+        onKeyDown={this.handleFinishEdit}
         onBlur={this.handleFinishEdit}
         defaultValue={this.props.content}
       />

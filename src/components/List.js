@@ -20,12 +20,18 @@ const List = props => {
   };
 
   const handleUpdateCard = (id, content) => {
-    const card = { id, content };
-    if (content) {
-      card.editing = false;
-    } else {
-      card.editing = true;
-    }
+    const card = {
+      id,
+      content,
+      editing: false
+    };
+
+    props.updateCard(card);
+  };
+
+  const handleInputClick = id => {
+    const card = props.cards.find(card => card.id === id);
+    card.editing = true;
     props.updateCard(card);
   };
 
@@ -36,7 +42,7 @@ const List = props => {
         <Card key={cardId}>
           <Editable
             {...cardProps}
-            onInputClick={handleUpdateCard}
+            onInputClick={handleInputClick}
             onEdit={handleUpdateCard}
           />
         </Card>
