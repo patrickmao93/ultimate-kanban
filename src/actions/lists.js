@@ -13,6 +13,27 @@ export const createList = () => {
   };
 };
 
+export const updateListName = (id, name) => {
+  return {
+    type: actionTypes.UPDATE_LIST_NAME,
+    payload: {
+      id,
+      name,
+      editing: false
+    }
+  };
+};
+
+export const updateEditingStatus = (id, editing) => {
+  return {
+    type: actionTypes.UPDATE_EDITING_STATUS,
+    payload: {
+      id,
+      editing
+    }
+  };
+};
+
 export const attachToList = (cardId, listId) => {
   return {
     type: actionTypes.ATTACH_TO_LIST,

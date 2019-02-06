@@ -21,19 +21,29 @@ body {
 
 .board {
   padding: 20px;
-  max-width: 1000px;
+  border-radius: 10px;
+
   &__header {
     padding: 14px;
   }
   &__content {
     display: flex;
     align-items: flex-start;
+
+    &__add {
+      min-width: 250px;
+      border: 2px dotted $color-secondary-dark;
+      border-radius: 6px;
+      padding: 14px;
+      cursor: pointer;
+    }
   }
 }
 
 .list {
   min-width: 250px;
-  border: 1px solid $color-secondary;
+  border: 2px solid $color-secondary;
+  border-radius: 6px;
   margin-right: 20px;
 
   &__header {
@@ -58,20 +68,31 @@ body {
 
 .card {
   cursor: pointer;
-  padding: 14px;
-  &:hover {
-    background: $color-secondary;
-  }
-  .editable {
-    border: none;
-    outline: none;
-    padding: 10px;
-    background: none;
-    border-bottom: 3px solid transparent;
+  position: relative;
+  padding: 6px;
+  margin: 12px;
+  border-radius: 6px;
+  background: $color-secondary;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: ease 0.2s;
 
-    &--editing {
-      background: $color-secondary-light;
-      border-bottom: 3px solid $color-primary;
-    }
+  &:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.editable {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 6px;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid transparent;
+
+  &--editing {
+    cursor: auto;
+    background: $color-secondary-light;
+    border: 1px solid $color-secondary;
   }
 }
