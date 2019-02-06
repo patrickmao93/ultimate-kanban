@@ -31,9 +31,24 @@ body {
   border-radius: 6px;
   margin-right: 20px;
 }
+.list:hover .list__header__close {
+  opacity: 1;
+}
 .list__header {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
   padding: 14px;
+}
+.list__header__close {
+  opacity: 0;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 5px;
+  color: #babdbe;
+  transition: ease 0.2s;
+}
+.list__header__close:hover {
+  color: #858b8d;
 }
 .list__add {
   cursor: pointer;

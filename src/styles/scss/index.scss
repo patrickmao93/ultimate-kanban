@@ -45,9 +45,28 @@ body {
   border-radius: 6px;
   margin-right: 20px;
 
+  &:hover {
+    .list__header__close {
+      opacity: 1;
+    }
+  }
+
   &__header {
-    font-weight: bold;
+    display: flex;
+    align-items: center;
     padding: 14px;
+
+    &__close {
+      opacity: 0;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 5px;
+      color: $color-secondary-dark;
+      transition: ease 0.2s;
+      &:hover {
+        color: darken($color-secondary-dark, 20%);
+      }
+    }
   }
 
   &__add {

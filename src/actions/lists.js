@@ -14,6 +14,13 @@ export const createList = () => {
   };
 };
 
+export const deleteList = id => {
+  return {
+    type: actionTypes.DELETE_LIST,
+    payload: { id }
+  };
+};
+
 export const updateListName = (id, name) => {
   return {
     type: actionTypes.UPDATE_LIST_NAME,

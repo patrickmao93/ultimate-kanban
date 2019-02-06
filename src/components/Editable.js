@@ -25,6 +25,10 @@ class Editable extends React.Component {
     this.props.onEdit(this.props.id, e.target.value);
   };
 
+  handleFocus = e => {
+    e.target.select();
+  };
+
   renderValue = () => {
     return (
       <input
@@ -45,6 +49,7 @@ class Editable extends React.Component {
         onKeyDown={this.handleFinishEdit}
         onBlur={this.handleFinishEdit}
         defaultValue={this.props.content}
+        onFocus={this.handleFocus}
         autoFocus={true}
       />
     );

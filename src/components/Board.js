@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 
 import List from "components/List";
 import Editable from "components/Editable";
-import { updateListName, updateEditingStatus, createList } from "actions/lists";
+import {
+  updateListName,
+  updateEditingStatus,
+  createList,
+  deleteList
+} from "actions/lists";
 
 const Board = props => {
   const handleInputClick = id => {
@@ -12,7 +17,7 @@ const Board = props => {
   };
 
   const lists = props.lists.map(list => (
-    <List key={list.id} {...list}>
+    <List key={list.id} {...list} onDelete={props.deleteList}>
       <Editable
         id={list.id}
         content={list.name}
@@ -45,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateListName, updateEditingStatus, createList }
+  { updateListName, updateEditingStatus, createList, deleteList }
 )(Board);

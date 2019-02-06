@@ -1,20 +1,21 @@
 import * as actions from "../lists";
 
 describe("lists actions", () => {
-  it("should create a list action", () => {
+  it("CREATE_LIST: should create an action object", () => {
     expect(actions.createList()).toEqual(
       expect.objectContaining({
         type: "CREATE_LIST",
         payload: expect.objectContaining({
           id: expect.any(String),
           name: "New list",
-          cards: []
+          editing: true,
+          cardIds: []
         })
       })
     );
   });
 
-  it("should create an attachToList action object", () => {
+  it("ATTACH_TO_LIST: should create an attachToList action object", () => {
     const cardId = 0;
     const listId = 0;
     expect(actions.attachToList(cardId, listId)).toEqual(

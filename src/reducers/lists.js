@@ -18,6 +18,13 @@ export default (state = defaultState, action) => {
     case actionTypes.CREATE_LIST:
       return [...state, action.payload];
 
+    case actionTypes.DELETE_LIST: {
+      const newState = copyState(state);
+      const index = newState.findIndex(list => list.id === action.payload.id);
+      newState.splice(index, 1);
+      return newState;
+    }
+
     case actionTypes.ATTACH_TO_LIST: {
       const { listId, cardId } = action.payload;
       const newState = copyState(state);

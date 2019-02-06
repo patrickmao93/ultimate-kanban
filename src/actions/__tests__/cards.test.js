@@ -26,11 +26,15 @@ describe("cards actions", () => {
   });
 
   it("DELETE_CARD: should create an action object", () => {
-    const id = "test";
-    expect(actions.deleteCard(id)).toEqual(
+    const cardId = "test";
+    const listId = "test1";
+    expect(actions.deleteCard(cardId, listId)).toEqual(
       expect.objectContaining({
         type: "DELETE_CARD",
-        payload: id
+        payload: expect.objectContaining({
+          cardId,
+          listId
+        })
       })
     );
   });

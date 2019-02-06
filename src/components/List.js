@@ -8,7 +8,7 @@ import { createCard, updateCard, deleteCard } from "actions/cards";
 import { attachToList } from "actions/lists";
 
 const List = props => {
-  const { id, cardIds } = props;
+  const { id, cardIds, onDelete } = props;
 
   const handleCreateCard = e => {
     const newCard = props.createCard("New card");
@@ -52,7 +52,12 @@ const List = props => {
 
   return (
     <div className="list">
-      <div className="list__header">{props.children}</div>
+      <div className="list__header">
+        {props.children}
+        <div className="list__header__close" onClick={() => onDelete(id)}>
+          <i className="fas fa-times" />
+        </div>
+      </div>
       <div className="list__content">{renderCards()}</div>
       <div className="list__add">
         <span className="list__add__button" onClick={handleCreateCard}>
