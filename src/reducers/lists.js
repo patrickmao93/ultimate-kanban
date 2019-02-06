@@ -16,12 +16,7 @@ const copyState = state => {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.CREATE_LIST:
-      const newList = {
-        id: uuid(),
-        name: "New List",
-        notes: []
-      };
-      return [...state, newList];
+      return [...state, action.payload];
 
     case actionTypes.ATTACH_TO_LIST: {
       const { listId, cardId } = action.payload;

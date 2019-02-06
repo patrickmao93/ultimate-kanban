@@ -45,6 +45,7 @@ class Editable extends React.Component {
         onKeyDown={this.handleFinishEdit}
         onBlur={this.handleFinishEdit}
         defaultValue={this.props.content}
+        autoFocus={true}
       />
     );
   };

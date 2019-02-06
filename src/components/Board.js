@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 
 import List from "components/List";
 import Editable from "components/Editable";
-import { updateListName, updateEditingStatus } from "actions/lists";
-
-const handleAddList = () => {};
+import { updateListName, updateEditingStatus, createList } from "actions/lists";
 
 const Board = props => {
   const handleInputClick = id => {
@@ -29,8 +27,8 @@ const Board = props => {
       <div className="board__header">Kanban Board</div>
       <div className="board__content">
         {lists}
-        <div className="board__content__add" onClick={handleAddList}>
-          <Editable onInputClick={handleInputClick} onEdit={handleAddList} />
+        <div className="board__content__add" onClick={props.createList}>
+          + Add a list
         </div>
       </div>
     </div>
@@ -47,5 +45,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateListName, updateEditingStatus }
+  { updateListName, updateEditingStatus, createList }
 )(Board);

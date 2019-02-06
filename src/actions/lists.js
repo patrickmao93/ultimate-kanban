@@ -8,7 +8,8 @@ export const createList = () => {
     payload: {
       id: uuid(),
       name: "New list",
-      cards: []
+      editing: true,
+      cardIds: []
     }
   };
 };
