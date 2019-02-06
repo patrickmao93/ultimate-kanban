@@ -16,7 +16,7 @@ const List = props => {
   };
 
   const handleDeleteCard = id => {
-    props.deleteCard(id);
+    props.deleteCard(id, props.id);
   };
 
   const handleUpdateCard = (id, content) => {
@@ -39,7 +39,7 @@ const List = props => {
     return cardIds.map(cardId => {
       const cardProps = props.cards.find(card => card.id === cardId);
       return (
-        <Card key={cardId}>
+        <Card key={cardId} onDelete={handleDeleteCard}>
           <Editable
             {...cardProps}
             onInputClick={handleInputClick}

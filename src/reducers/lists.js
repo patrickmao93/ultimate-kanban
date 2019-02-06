@@ -40,6 +40,15 @@ export default (state = defaultState, action) => {
       return newState;
     }
 
+    case actionTypes.DELETE_CARD: {
+      const { cardId, listId } = action.payload;
+      const newState = copyState(state);
+      const list = newState.find(list => list.id === listId);
+      const index = list.cardIds.findIndex(id => cardId === id);
+      list.cardIds.splice(index, 1);
+      return newState;
+    }
+
     default:
       return state;
   }

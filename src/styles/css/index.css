@@ -57,10 +57,27 @@ body {
   border-radius: 6px;
   background: #eceff1;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: ease 0.1s;
+  display: flex;
+  align-items: center;
+}
+.card__content {
+  flex: 1;
+}
+.card__close {
+  opacity: 0;
+  padding: 5px;
+  color: #babdbe;
   transition: ease 0.2s;
 }
+.card__close:hover {
+  color: #858b8d;
+}
 .card:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.card:hover .card__close {
+  opacity: 1;
 }
 
 .editable {

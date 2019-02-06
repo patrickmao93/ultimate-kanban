@@ -20,9 +20,12 @@ export const updateCard = card => {
   };
 };
 
-export const deleteCard = id => {
+export const deleteCard = (cardId, listId) => {
   return {
     type: actionTypes.DELETE_CARD,
-    payload: id
+    payload: {
+      cardId,
+      listId
+    }
   };
 };

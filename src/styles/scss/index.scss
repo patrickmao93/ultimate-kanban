@@ -73,10 +73,30 @@ body {
   border-radius: 6px;
   background: $color-secondary;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  transition: ease 0.2s;
+  transition: ease 0.1s;
+
+  display: flex;
+  align-items: center;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__close {
+    opacity: 0;
+    padding: 5px;
+    color: $color-secondary-dark;
+    transition: ease 0.2s;
+    &:hover {
+      color: darken($color-secondary-dark, 20%);
+    }
+  }
 
   &:hover {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    .card__close {
+      opacity: 1;
+    }
   }
 }
 
