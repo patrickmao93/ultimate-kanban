@@ -51,3 +51,13 @@ export const attachToList = (cardId, listId) => {
     }
   };
 };
+
+export const detachFromList = (cardId, listId) => {
+  return {
+    type: actionTypes.DETACH_FROM_LIST,
+    payload: {
+      listId,
+      cardId
+    }
+  };
+};

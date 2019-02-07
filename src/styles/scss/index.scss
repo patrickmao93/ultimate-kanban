@@ -44,10 +44,27 @@ body {
   border: 2px solid $color-secondary;
   border-radius: 6px;
   margin-right: 20px;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     .list__header__close {
       opacity: 1;
+    }
+  }
+
+  &__dragging-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    display: none;
+    background: red;
+
+    &--active {
+      display: block;
     }
   }
 

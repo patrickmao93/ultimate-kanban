@@ -32,6 +32,17 @@ export default (state = defaultState, action) => {
       return newState;
     }
 
+    case actionTypes.DETACH_FROM_LIST: {
+      const { listId, cardId } = action.payload;
+      const newState = copyState(state);
+      const listIndex = newState.findIndex(list => list.id === listId);
+      const cardIndex = newState[listIndex].cardIds.findIndex(
+        card => card === cardId
+      );
+      newState[listIndex].cardIds.splice(cardIndex, 1);
+      return newState;
+    }
+
     case actionTypes.UPDATE_LIST_NAME: {
       const { id, name, editing } = action.payload;
       const newState = copyState(state);

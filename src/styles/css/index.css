@@ -30,9 +30,24 @@ body {
   border: 2px solid #eceff1;
   border-radius: 6px;
   margin-right: 20px;
+  position: relative;
+  overflow: hidden;
 }
 .list:hover .list__header__close {
   opacity: 1;
+}
+.list__dragging-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  display: none;
+  background: red;
+}
+.list__dragging-over--active {
+  display: block;
 }
 .list__header {
   display: flex;

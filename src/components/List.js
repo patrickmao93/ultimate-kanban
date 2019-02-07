@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import { DropTarget } from "react-dnd";
 
 import Card from "components/Card";
 import Editable from "components/Editable";
 import { createCard, updateCard, deleteCard } from "actions/cards";
-import { attachToList } from "actions/lists";
+import { attachToList, detachFromList } from "actions/lists";
+import * as ItemTypes from "constants/ItemTypes";
 
 const List = props => {
-  const { id, cardIds, onDelete } = props;
+  const { id, cardIds, onDelete, connectDropTarget } = props;
 
   const handleCreateCard = e => {
     const newCard = props.createCard("New card");
@@ -50,8 +52,12 @@ const List = props => {
     });
   };
 
-  return (
+  return connectDropTarget(
     <div className="list">
+      <div
+        className={`list__dragging-over ${props.isOver &&
+          "list__dragging-over--active"}`}
+      />
       <div className="list__header">
         {props.children}
         <div className="list__header__close" onClick={() => onDelete(id)}>
@@ -68,6 +74,21 @@ const List = props => {
   );
 };
 
+const cardTarget = {
+  drop(props, monitor) {
+    const cardId = monitor.getItem().id;
+    props.attachToList(cardId, props.id);
+    props.detachFromList(cardId, props.id);
+  }
+};
+
+const collect = (dndConnect, monitor) => {
+  return {
+    connectDropTarget: dndConnect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+};
+
 List.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -81,5 +102,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createCard, updateCard, deleteCard, attachToList }
-)(List);
+  { createCard, updateCard, deleteCard, attachToList, detachFromList }
+)(DropTarget(ItemTypes.CARD, cardTarget, collect)(List));
