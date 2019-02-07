@@ -24,6 +24,8 @@ body {
 
   &__header {
     padding: 14px;
+    font-size: 2rem;
+    font-weight: bold;
   }
   &__content {
     display: flex;
@@ -73,6 +75,11 @@ body {
     align-items: center;
     padding: 14px;
 
+    input {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
     &__close {
       opacity: 0;
       cursor: pointer;
@@ -113,6 +120,12 @@ body {
 
   display: flex;
   align-items: center;
+
+  &--dragging {
+    padding: 14px;
+    box-shadow: none;
+    cursor: auto;
+  }
 
   &__content {
     flex: 1;

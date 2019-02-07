@@ -10,14 +10,21 @@ import {
   createList,
   deleteList
 } from "actions/lists";
+import { deleteCard } from "actions/cards";
 
 const Board = props => {
   const handleInputClick = id => {
     props.updateEditingStatus(id, true);
   };
 
+  const handleDeleteList = id => {
+    const list = props.lists.find(list => list.id === id);
+    list.cardIds.forEach(cardId => props.deleteCard(cardId));
+    props.deleteList(id);
+  };
+
   const lists = props.lists.map(list => (
-    <List key={list.id} {...list} onDelete={props.deleteList}>
+    <List key={list.id} {...list} onDelete={() => handleDeleteList(list.id)}>
       <Editable
         id={list.id}
         content={list.name}
@@ -29,7 +36,7 @@ const Board = props => {
   ));
   return (
     <div className="board">
-      <div className="board__header">Kanban Board</div>
+      <div className="board__header">React/Redux Kanban Board</div>
       <div className="board__content">
         {lists}
         <div className="board__content__add" onClick={props.createList}>
@@ -50,5 +57,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateListName, updateEditingStatus, createList, deleteList }
+  { updateListName, updateEditingStatus, createList, deleteList, deleteCard }
 )(Board);

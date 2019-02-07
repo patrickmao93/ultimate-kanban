@@ -12,6 +12,8 @@ body {
 }
 .board__header {
   padding: 14px;
+  font-size: 2rem;
+  font-weight: bold;
 }
 .board__content {
   display: flex;
@@ -54,6 +56,10 @@ body {
   align-items: center;
   padding: 14px;
 }
+.list__header input {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 .list__header__close {
   opacity: 0;
   cursor: pointer;
@@ -90,6 +96,11 @@ body {
   transition: ease 0.1s;
   display: flex;
   align-items: center;
+}
+.card--dragging {
+  padding: 14px;
+  box-shadow: none;
+  cursor: auto;
 }
 .card__content {
   flex: 1;

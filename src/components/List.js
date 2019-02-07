@@ -84,8 +84,8 @@ const cardTarget = {
     const cardId = monitor.getItem().id;
     const listId = monitor.getItem().listId;
 
-    props.attachToList(cardId, props.id);
     props.detachFromList(cardId, listId);
+    props.attachToList(cardId, props.id);
   }
 };
 

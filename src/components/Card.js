@@ -23,9 +23,8 @@ const collect = (connect, monitor) => {
 };
 
 class Card extends React.Component {
-  render() {
-    const { isDragging, connectDragSource } = this.props;
-    const { id, children, onDelete } = this.props;
+  renderCard() {
+    const { connectDragSource, children, id, onDelete } = this.props;
     return connectDragSource(
       <div className="card">
         <div className="card__content">{children}</div>
@@ -34,6 +33,11 @@ class Card extends React.Component {
         </div>
       </div>
     );
+  }
+
+  render() {
+    const { isDragging } = this.props;
+    return isDragging ? null : this.renderCard();
   }
 }
 

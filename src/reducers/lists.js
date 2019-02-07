@@ -62,6 +62,11 @@ export default (state = defaultState, action) => {
       const { cardId, listId } = action.payload;
       const newState = copyState(state);
       const list = newState.find(list => list.id === listId);
+
+      if (!list) {
+        return state;
+      }
+
       const index = list.cardIds.findIndex(id => cardId === id);
       list.cardIds.splice(index, 1);
       return newState;
