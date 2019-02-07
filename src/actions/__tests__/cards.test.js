@@ -8,7 +8,7 @@ describe("cards actions", () => {
         type: "CREATE_CARD",
         payload: expect.objectContaining({
           id: expect.any(String),
-          editing: false,
+          editing: true,
           content
         })
       })
