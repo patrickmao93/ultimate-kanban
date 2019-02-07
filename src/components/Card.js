@@ -6,7 +6,8 @@ import * as ItemTypes from "constants/ItemTypes";
 const cardSource = {
   beginDrag(props) {
     return {
-      id: props.id
+      id: props.id,
+      listId: props.listId
     };
   },
   isDragging(props, monitor) {

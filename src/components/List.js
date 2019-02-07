@@ -12,7 +12,7 @@ import * as ItemTypes from "constants/ItemTypes";
 const List = props => {
   const { id, cardIds, onDelete, connectDropTarget } = props;
 
-  const handleCreateCard = e => {
+  const handleCreateCard = () => {
     const newCard = props.createCard("New card");
     props.attachToList(newCard.payload.id, id);
   };
@@ -41,7 +41,12 @@ const List = props => {
     return cardIds.map(cardId => {
       const cardProps = props.cards.find(card => card.id === cardId);
       return (
-        <Card key={cardId} onDelete={handleDeleteCard}>
+        <Card
+          key={cardId}
+          onDelete={handleDeleteCard}
+          id={cardId}
+          listId={props.id}
+        >
           <Editable
             {...cardProps}
             onInputClick={handleInputClick}
@@ -77,8 +82,10 @@ const List = props => {
 const cardTarget = {
   drop(props, monitor) {
     const cardId = monitor.getItem().id;
+    const listId = monitor.getItem().listId;
+
     props.attachToList(cardId, props.id);
-    props.detachFromList(cardId, props.id);
+    props.detachFromList(cardId, listId);
   }
 };
 

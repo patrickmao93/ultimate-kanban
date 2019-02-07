@@ -61,7 +61,7 @@ body {
     bottom: 0;
     opacity: 0.5;
     display: none;
-    background: red;
+    background: $color-secondary;
 
     &--active {
       display: block;
