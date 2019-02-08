@@ -2,7 +2,27 @@
   background: $color-secondary;
   padding: 6px;
   border-radius: 4px;
+  width: 100%;
+  opacity: 0.5;
+  overflow: hidden;
+  max-height: 56px;
+  transition: ease 0.2s;
   &__input {
     margin-bottom: 6px;
+  }
+
+  &__ops {
+    display: flex;
+    align-items: center;
+
+    &__close {
+      color: $color-secondary-dark;
+      margin-left: 2px;
+      cursor: pointer;
+      padding: 6px;
+      &:hover {
+        color: darken($color-secondary-dark, 10%);
+      }
+    }
   }
 }

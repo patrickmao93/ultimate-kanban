@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 
 import AddBox from "./AddBox";
 import { openAddListBox, closeAddListBox } from "actions/ui";
@@ -8,8 +8,11 @@ import { createList } from "actions/lists";
 
 const AddList = props => {
   const button = (
-    <button className="board__content__add" onClick={props.openAddListBox}>
-      + Add a list
+    <button
+      className="board__content__add__button"
+      onClick={props.openAddListBox}
+    >
+      <Icon name="plus" /> Add another list
     </button>
   );
 

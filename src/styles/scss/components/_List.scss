@@ -57,13 +57,17 @@
 
   &__add {
     cursor: pointer;
-    color: $color-text-on-s-soft;
+    color: $color-secondary-dark;
     &__button {
       box-sizing: border-box;
       display: inline-block;
-      padding: 14px;
+      padding: 10px;
       width: 100%;
       &:hover {
+        span {
+          color: $color-primary;
+          text-decoration: underline;
+        }
         background: lighten($color-secondary, 2%);
       }
     }

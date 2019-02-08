@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { DropTarget } from "react-dnd";
+import { Icon } from "semantic-ui-react";
 
 import Card from "components/Card";
 import Editable from "components/Editable";
@@ -66,13 +67,13 @@ const List = props => {
       <div className="list__header">
         {props.children}
         <div className="list__header__close" onClick={() => onDelete(id)}>
-          <i className="fas fa-times" />
+          <Icon name="times" />
         </div>
       </div>
       <div className="list__content">{renderCards()}</div>
       <div className="list__add">
         <span className="list__add__button" onClick={handleCreateCard}>
-          + Add another card
+          <Icon name="plus" /> <span>Add another card</span>
         </span>
       </div>
     </div>

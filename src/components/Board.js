@@ -40,7 +40,9 @@ const Board = props => {
       <div className="board__header">React/Redux Kanban</div>
       <div className="board__content">
         {lists}
-        <AddList open={props.addListBox.open} />
+        <div className="board__content__add">
+          <AddList open={props.addListBox.open} />
+        </div>
       </div>
     </div>
   );

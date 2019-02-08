@@ -1,5 +1,6 @@
 import React from "react";
 import { DragSource } from "react-dnd";
+import { Icon } from "semantic-ui-react";
 
 import * as ItemTypes from "constants/ItemTypes";
 
@@ -29,7 +30,7 @@ class Card extends React.Component {
       <div className="card">
         <div className="card__content">{children}</div>
         <div className="card__close" onClick={() => onDelete(id)}>
-          <i className="fas fa-times" />
+          <Icon name="times" />
         </div>
       </div>
     );
