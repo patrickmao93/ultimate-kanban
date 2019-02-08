@@ -1,0 +1,44 @@
+.card {
+  cursor: pointer;
+  position: relative;
+  padding: 6px;
+  margin: 10px;
+  border-radius: 3px;
+  background: $color-secondary-light;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: ease 0.1s;
+
+  display: flex;
+  align-items: center;
+
+  &--dragging {
+    padding: 14px;
+    box-shadow: none;
+    cursor: auto;
+  }
+
+  &__content {
+    flex: 1;
+
+    .editable {
+      width: 90%;
+    }
+  }
+
+  &__close {
+    opacity: 0;
+    padding: 5px;
+    color: $color-secondary-dark;
+    transition: ease 0.2s;
+    &:hover {
+      color: darken($color-secondary-dark, 20%);
+    }
+  }
+
+  &:hover {
+    background: lighten($color-secondary, 5%);
+    .card__close {
+      opacity: 1;
+    }
+  }
+}

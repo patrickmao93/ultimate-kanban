@@ -1,0 +1,32 @@
+.board {
+  padding: 20px;
+  border-radius: 10px;
+
+  &__header {
+    padding: 14px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &__content {
+    display: flex;
+    align-items: flex-start;
+
+    &__add {
+      min-width: 280px;
+      max-width: 280px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      padding: 20px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      text-align: left;
+      font-size: 1rem;
+      outline: none;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Root from "./Root";
 import App from "./components/App";
 
-import "reset-css";
+import "semantic-ui-css/semantic.min.css";
 import "styles/css/index.css";
 
 ReactDOM.render(

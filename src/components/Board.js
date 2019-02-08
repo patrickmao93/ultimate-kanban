@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import List from "components/List";
 import Editable from "components/Editable";
+import AddList from "components/ui/AddList";
 import {
   updateListName,
   updateEditingStatus,
@@ -36,12 +37,10 @@ const Board = props => {
   ));
   return (
     <div className="board">
-      <div className="board__header">React/Redux Kanban Board</div>
+      <div className="board__header">React/Redux Kanban</div>
       <div className="board__content">
         {lists}
-        <div className="board__content__add" onClick={props.createList}>
-          + Add a list
-        </div>
+        <AddList open={props.addListBox.open} />
       </div>
     </div>
   );
@@ -52,7 +51,8 @@ Board.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  lists: state.lists
+  lists: state.lists,
+  addListBox: state.ui.addListBox
 });
 
 export default connect(

@@ -1,9 +1,11 @@
 body {
   font-family: sans-serif;
+  color: white;
 }
 
 .app {
   height: 100vh;
+  background: #038387;
 }
 
 .board {
@@ -20,20 +22,30 @@ body {
   align-items: flex-start;
 }
 .board__content__add {
-  min-width: 250px;
-  border: 2px dotted #babdbe;
+  min-width: 280px;
+  max-width: 280px;
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  padding: 14px;
+  padding: 20px;
+  border: none;
+  color: white;
   cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  outline: none;
+}
+.board__content__add:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .list {
-  min-width: 250px;
-  border: 2px solid #eceff1;
-  border-radius: 6px;
-  margin-right: 20px;
+  min-width: 280px;
+  max-width: 280px;
+  border-radius: 4px;
+  margin-right: 10px;
   position: relative;
   overflow: hidden;
+  background: #eceff1;
 }
 .list:hover .list__header__close {
   opacity: 1;
@@ -44,9 +56,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.5;
+  opacity: 0.3;
   display: none;
-  background: #eceff1;
+  background: #f2f4f5;
+  border-radius: 4px;
+  border: 2px solid #038387;
+  z-index: 1000;
 }
 .list__dragging-over--active {
   display: block;
@@ -55,10 +70,11 @@ body {
   display: flex;
   align-items: center;
   padding: 14px;
+  padding-bottom: 0;
 }
 .list__header input {
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.2rem;
 }
 .list__header__close {
   opacity: 0;
@@ -82,17 +98,17 @@ body {
   width: 100%;
 }
 .list__add__button:hover {
-  background: #eceff1;
+  background: #f2f4f5;
 }
 
 .card {
   cursor: pointer;
   position: relative;
   padding: 6px;
-  margin: 12px;
-  border-radius: 6px;
-  background: #eceff1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  border-radius: 3px;
+  background: #ffffff;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
   transition: ease 0.1s;
   display: flex;
   align-items: center;
@@ -105,6 +121,9 @@ body {
 .card__content {
   flex: 1;
 }
+.card__content .editable {
+  width: 90%;
+}
 .card__close {
   opacity: 0;
   padding: 5px;
@@ -115,7 +134,7 @@ body {
   color: #858b8d;
 }
 .card:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: #fbfbfc;
 }
 .card:hover .card__close {
   opacity: 1;
@@ -128,12 +147,22 @@ body {
   padding: 6px;
   border-radius: 4px;
   background: none;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  width: 90%;
 }
 .editable--editing {
   cursor: auto;
   background: #ffffff;
-  border: 1px solid #eceff1;
+  border: 2px solid #4fb3b7;
+}
+
+.add-box {
+  background: #eceff1;
+  padding: 6px;
+  border-radius: 4px;
+}
+.add-box__input {
+  margin-bottom: 6px;
 }
 
 /*# sourceMappingURL=index.css.map */

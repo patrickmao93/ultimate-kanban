@@ -1,0 +1,8 @@
+.add-box {
+  background: $color-secondary;
+  padding: 6px;
+  border-radius: 4px;
+  &__input {
+    margin-bottom: 6px;
+  }
+}

@@ -1,0 +1,16 @@
+.editable {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 6px;
+  border-radius: 4px;
+  background: none;
+  border: 2px solid transparent;
+  width: 90%;
+
+  &--editing {
+    cursor: auto;
+    background: $color-secondary-light;
+    border: 2px solid $color-primary-light;
+  }
+}
