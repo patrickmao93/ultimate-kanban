@@ -2,13 +2,13 @@ import uuid from "uuid/v4";
 
 import * as actionTypes from "actions/types";
 
-export const createList = () => {
+export const createList = title => {
   return {
     type: actionTypes.CREATE_LIST,
     payload: {
       id: uuid(),
-      name: "New list",
-      editing: true,
+      name: title,
+      editing: false,
       cardIds: []
     }
   };

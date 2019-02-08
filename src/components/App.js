@@ -7,6 +7,7 @@ import Board from "components/Board";
 const App = () => {
   return (
     <div className="app">
+      <div id="clickCatcher" />
       <Board />
     </div>
   );

@@ -9,6 +9,7 @@ body {
 }
 
 .board {
+  position: relative;
   padding: 20px;
   border-radius: 10px;
 }
@@ -127,6 +128,8 @@ body {
 }
 .card__content {
   flex: 1;
+  white-space: normal;
+  overflow: hidden;
 }
 .card__content .editable {
   width: 90%;
@@ -188,6 +191,17 @@ body {
 }
 .add-box__ops__close:hover {
   color: #a0a4a5;
+}
+
+#clickCatcher {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.click-catcher {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

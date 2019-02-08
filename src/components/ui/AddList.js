@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, Icon } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 
 import AddBox from "./AddBox";
 import { openAddListBox, closeAddListBox } from "actions/ui";
@@ -19,11 +19,9 @@ const AddList = props => {
   const box = (
     <AddBox
       placeholder="Enter list title..."
-      onAdd={props.onAdd}
+      onAdd={props.createList}
       onDismiss={props.closeAddListBox}
-    >
-      <Button primary>Add List</Button>
-    </AddBox>
+    />
   );
 
   return props.open ? box : button;
