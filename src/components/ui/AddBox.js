@@ -4,7 +4,7 @@ import { Input, Icon, Button } from "semantic-ui-react";
 import ClickCatcher from "./ClickCatcher";
 
 class AddListBox extends React.Component {
-  state = { title: "" };
+  state = { content: "" };
 
   boxRef = React.createRef();
   inputRef = React.createRef();
@@ -12,22 +12,22 @@ class AddListBox extends React.Component {
   handleDismiss = () => {
     const addBoxStyle = this.boxRef.current.style;
     addBoxStyle.opacity = 0;
-    addBoxStyle.maxHeight = "56px";
+    addBoxStyle.maxHeight = "36px";
     setTimeout(() => {
       this.props.onDismiss();
     }, 160);
   };
 
   handleInputChange = e => {
-    this.setState({ title: e.target.value });
+    this.setState({ content: e.target.value });
   };
 
   handleSubmit = e => {
     if (e.type === "keydown" && e.key !== "Enter") return;
-    const title = this.state.title.trim();
-    if (!title) return;
-    this.setState({ title: "" });
-    this.props.onAdd(title);
+    const content = this.state.content.trim();
+    if (!content) return;
+    this.setState({ content: "" });
+    this.props.onAdd(content);
     this.inputRef.current.focus();
   };
 
@@ -38,26 +38,38 @@ class AddListBox extends React.Component {
   }
 
   render() {
-    const { placeholder } = this.props;
-    const { title } = this.state;
+    const { content } = this.state;
+    const { placeholder, buttonText } = this.props;
+    let { className } = this.props;
+
     return (
-      <div className="add-box" ref={this.boxRef}>
-        <div className="add-box__input">
+      <div className={`composer-box ${className}`} ref={this.boxRef}>
+        <div
+          className={`composer-box__input ${className &&
+            className + "__input"}`}
+        >
           <Input
             fluid
+            transparent={this.props.transparent}
             autoFocus={true}
             placeholder={placeholder}
-            value={title}
+            value={content}
             onChange={this.handleInputChange}
             onKeyDown={this.handleSubmit}
             ref={this.inputRef}
           />
         </div>
-        <div className="add-box__ops">
-          <Button primary onClick={() => this.handleSubmit(title)}>
-            Add List
+        <div
+          className={`composer-box__ops ${className && className + "__ops"}`}
+        >
+          <Button primary onClick={() => this.handleSubmit(content)}>
+            {buttonText}
           </Button>
-          <div className="add-box__ops__close" onClick={this.handleDismiss}>
+          <div
+            className={`composer-box__ops__close ${className &&
+              className + "__ops__close"}`}
+            onClick={this.handleDismiss}
+          >
             <Icon name="times" size="large" />
           </div>
         </div>

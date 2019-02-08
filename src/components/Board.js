@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import List from "components/List";
 import Editable from "components/Editable";
-import AddList from "components/ui/AddList";
+import AddListButton from "components/AddListButton";
 import {
   updateListName,
   updateEditingStatus,
@@ -41,7 +41,7 @@ const Board = props => {
       <div className="board__content">
         {lists}
         <div className="board__content__add">
-          <AddList open={props.addListBox.open} />
+          <AddListButton open={props.addListBox.open} />
         </div>
       </div>
     </div>

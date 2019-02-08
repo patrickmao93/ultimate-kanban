@@ -1,4 +1,5 @@
 .list {
+  pointer-events: all;
   min-width: 280px;
   max-width: 280px;
   border-radius: 4px;
@@ -34,8 +35,7 @@
   &__header {
     display: flex;
     align-items: center;
-    padding: 14px;
-    padding-bottom: 0;
+    padding: 10px 36px 8px 8px;
 
     input {
       font-size: 1rem;
@@ -43,9 +43,10 @@
     }
 
     &__close {
+      position: absolute;
       opacity: 0;
       cursor: pointer;
-      margin-left: auto;
+      right: 12px;
       padding: 5px;
       color: $color-secondary-dark;
       transition: ease 0.2s;
@@ -55,20 +56,36 @@
     }
   }
 
-  &__add {
-    cursor: pointer;
-    color: $color-secondary-dark;
+  &__content {
+    padding: 0 4px;
+    margin: 0 4px;
+
     &__button {
-      box-sizing: border-box;
-      display: inline-block;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      text-align: left;
+      color: darken($color-secondary-dark, 10%);
       padding: 10px;
       width: 100%;
+      background: $color-secondary;
       &:hover {
+        color: $color-primary;
+        background: lighten($color-secondary, 2%);
         span {
-          color: $color-primary;
           text-decoration: underline;
         }
-        background: lighten($color-secondary, 2%);
+      }
+    }
+
+    &__composer {
+      margin-bottom: 8px;
+      padding: 0px;
+
+      &__input {
+        @extend %card;
+        padding: 12px;
+        margin-bottom: 8px;
       }
     }
   }

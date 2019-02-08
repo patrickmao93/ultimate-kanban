@@ -1,8 +1,9 @@
-.add-box {
+.composer-box {
+  pointer-events: all;
   background: $color-secondary;
-  padding: 6px;
   border-radius: 4px;
   width: 100%;
+  padding: 6px;
   opacity: 0.5;
   overflow: hidden;
   max-height: 56px;

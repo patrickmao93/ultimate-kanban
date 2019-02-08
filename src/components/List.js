@@ -6,17 +6,13 @@ import { Icon } from "semantic-ui-react";
 
 import Card from "components/Card";
 import Editable from "components/Editable";
+import AddCardButton from "components/AddCardButton";
 import { createCard, updateCard, deleteCard } from "actions/cards";
 import { attachToList, detachFromList } from "actions/lists";
 import * as ItemTypes from "constants/ItemTypes";
 
 const List = props => {
   const { id, cardIds, onDelete, connectDropTarget } = props;
-
-  const handleCreateCard = () => {
-    const newCard = props.createCard("New card");
-    props.attachToList(newCard.payload.id, id);
-  };
 
   const handleDeleteCard = id => {
     props.deleteCard(id, props.id);
@@ -70,11 +66,12 @@ const List = props => {
           <Icon name="times" />
         </div>
       </div>
-      <div className="list__content">{renderCards()}</div>
-      <div className="list__add">
-        <span className="list__add__button" onClick={handleCreateCard}>
-          <Icon name="plus" /> <span>Add another card</span>
-        </span>
+      <div className="list__content">
+        {renderCards()}
+        <AddCardButton
+          open={props.addCardBox.open && id === props.addCardBox.listId}
+          listId={id}
+        />
       </div>
     </div>
   );
@@ -105,7 +102,8 @@ List.propTypes = {
 
 const mapStateToProps = state => ({
   lists: state.lists,
-  cards: state.cards
+  cards: state.cards,
+  addCardBox: state.ui.addCardBox
 });
 
 export default connect(

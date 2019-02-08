@@ -10,4 +10,5 @@ export const ATTACH_TO_LIST = "ATTACH_TO_LIST";
 export const DETACH_FROM_LIST = "DETACH_FROM_LIST";
 
 // UI actions
-export const UI_ADD_LIST_BOX = "OPEN_ADD_LIST_BOX";
+export const UI_ADD_LIST_BOX = "UI_ADD_LIST_BOX";
+export const UI_ADD_CARD_BOX = "UI_ADD_CARD_BOX";

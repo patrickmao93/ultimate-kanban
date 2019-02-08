@@ -17,3 +17,23 @@ export const closeAddListBox = () => {
     }
   };
 };
+
+export const openAddCardBox = listId => {
+  return {
+    type: actionTypes.UI_ADD_CARD_BOX,
+    payload: {
+      listId,
+      open: true
+    }
+  };
+};
+
+export const closeAddCardBox = () => {
+  return {
+    type: actionTypes.UI_ADD_CARD_BOX,
+    payload: {
+      listId: null,
+      open: false
+    }
+  };
+};

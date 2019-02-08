@@ -1,6 +1,53 @@
+.card, .list__content__composer__input {
+  background: #ffffff;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 6px;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: sans-serif;
   color: white;
+}
+
+#clickCatcher {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.click-catcher {
+  width: 100%;
+  height: 100%;
+}
+
+.composer-box {
+  pointer-events: all;
+  background: #eceff1;
+  border-radius: 4px;
+  width: 100%;
+  padding: 6px;
+  opacity: 0.5;
+  overflow: hidden;
+  max-height: 56px;
+  transition: ease 0.2s;
+}
+.composer-box__input {
+  margin-bottom: 6px;
+}
+.composer-box__ops {
+  display: flex;
+  align-items: center;
+}
+.composer-box__ops__close {
+  color: #babdbe;
+  margin-left: 2px;
+  cursor: pointer;
+  padding: 6px;
+}
+.composer-box__ops__close:hover {
+  color: #a0a4a5;
 }
 
 .app {
@@ -9,6 +56,7 @@ body {
 }
 
 .board {
+  pointer-events: none;
   position: relative;
   padding: 20px;
   border-radius: 10px;
@@ -27,6 +75,7 @@ body {
   max-width: 280px;
 }
 .board__content__add__button {
+  pointer-events: all;
   width: 100%;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -43,6 +92,7 @@ body {
 }
 
 .list {
+  pointer-events: all;
   min-width: 280px;
   max-width: 280px;
   border-radius: 4px;
@@ -73,17 +123,17 @@ body {
 .list__header {
   display: flex;
   align-items: center;
-  padding: 14px;
-  padding-bottom: 0;
+  padding: 10px 36px 8px 8px;
 }
 .list__header input {
   font-size: 1rem;
   font-weight: bold;
 }
 .list__header__close {
+  position: absolute;
   opacity: 0;
   cursor: pointer;
-  margin-left: auto;
+  right: 12px;
   padding: 5px;
   color: #babdbe;
   transition: ease 0.2s;
@@ -91,32 +141,39 @@ body {
 .list__header__close:hover {
   color: #858b8d;
 }
-.list__add {
-  cursor: pointer;
-  color: #babdbe;
+.list__content {
+  padding: 0 4px;
+  margin: 0 4px;
 }
-.list__add__button {
-  box-sizing: border-box;
-  display: inline-block;
+.list__content__button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: left;
+  color: #a0a4a5;
   padding: 10px;
   width: 100%;
+  background: #eceff1;
 }
-.list__add__button:hover {
+.list__content__button:hover {
+  color: #038387;
   background: #f2f4f5;
 }
-.list__add__button:hover span {
-  color: #038387;
+.list__content__button:hover span {
   text-decoration: underline;
+}
+.list__content__composer {
+  margin-bottom: 8px;
+  padding: 0px;
+}
+.list__content__composer__input {
+  padding: 12px;
+  margin-bottom: 8px;
 }
 
 .card {
   cursor: pointer;
   position: relative;
-  padding: 6px;
-  margin: 10px;
-  border-radius: 3px;
-  background: #ffffff;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
   transition: ease 0.1s;
   display: flex;
   align-items: center;
@@ -164,44 +221,6 @@ body {
   cursor: auto;
   background: #ffffff;
   border: 2px solid #4fb3b7;
-}
-
-.add-box {
-  background: #eceff1;
-  padding: 6px;
-  border-radius: 4px;
-  width: 100%;
-  opacity: 0.5;
-  overflow: hidden;
-  max-height: 56px;
-  transition: ease 0.2s;
-}
-.add-box__input {
-  margin-bottom: 6px;
-}
-.add-box__ops {
-  display: flex;
-  align-items: center;
-}
-.add-box__ops__close {
-  color: #babdbe;
-  margin-left: 2px;
-  cursor: pointer;
-  padding: 6px;
-}
-.add-box__ops__close:hover {
-  color: #a0a4a5;
-}
-
-#clickCatcher {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-.click-catcher {
-  width: 100%;
-  height: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */
