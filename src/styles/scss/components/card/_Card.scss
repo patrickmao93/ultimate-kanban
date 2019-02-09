@@ -4,7 +4,6 @@
   position: relative;
   transition: ease 0.1s;
 
-  display: flex;
   align-items: center;
 
   &--dragging {
@@ -15,17 +14,19 @@
 
   &__content {
     color: $color-text-on-s;
+    padding-right: 36px;
     flex: 1;
     overflow: hidden;
-    padding-left: 10px;
-    .editable {
-      white-space: normal;
+    p {
+      max-width: 100%;
       word-wrap: break-word;
-      width: 90%;
     }
   }
 
   &__close {
+    position: absolute;
+    top: 5px;
+    right: 0;
     opacity: 0;
     padding: 5px;
     color: $color-secondary-dark;

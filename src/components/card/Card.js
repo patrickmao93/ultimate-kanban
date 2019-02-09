@@ -29,16 +29,17 @@ class Card extends React.Component {
   cardRef = React.createRef();
 
   renderEditor = () => {
-    // this.getEditorSpawnLocation();
+    const location = this.getEditorSpawnLocation();
     return (
       <Overlay>
-        <CardEditor />
+        <CardEditor location={location} />
       </Overlay>
     );
   };
 
   getEditorSpawnLocation = () => {
-    console.log(this.cardRef.current.getClientRects());
+    const { x, y } = this.cardRef.current.getClientRects()[0];
+    return { x, y };
   };
 
   renderCard = () => {
