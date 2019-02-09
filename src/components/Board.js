@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import List from "components/List";
-import Editable from "components/Editable";
+import Editable from "components/ui/Editable";
 import AddListButton from "components/AddListButton";
 import {
   updateListName,

@@ -8,6 +8,11 @@
   overflow: hidden;
   max-height: 38px;
   transition: ease 0.2s;
+
+  &--transparent {
+    background: none;
+  }
+
   &__input {
     margin-bottom: 6px;
     position: relative;

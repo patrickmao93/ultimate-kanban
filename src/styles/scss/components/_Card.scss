@@ -14,9 +14,10 @@
   }
 
   &__content {
+    color: $color-text-on-s;
     flex: 1;
     overflow: hidden;
-
+    padding-left: 10px;
     .editable {
       white-space: normal;
       word-wrap: break-word;

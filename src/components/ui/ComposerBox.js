@@ -51,7 +51,7 @@ class ComposerBox extends React.Component {
 
   render() {
     const { content, error } = this.state;
-    const { placeholder, buttonText, type, limit } = this.props;
+    const { placeholder, buttonText, type, limit, transparent } = this.props;
     let { className } = this.props;
     let input = null;
 
@@ -82,7 +82,11 @@ class ComposerBox extends React.Component {
     }
 
     return (
-      <div className={`composer-box ${className}`} ref={this.boxRef}>
+      <div
+        className={`composer-box ${className} ${transparent &&
+          "composer-box--transparent"}`}
+        ref={this.boxRef}
+      >
         <Form
           className={`composer-box__input ${className &&
             className + "__input"}`}

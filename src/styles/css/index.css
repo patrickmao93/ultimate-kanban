@@ -11,6 +11,16 @@ body {
   color: white;
 }
 
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1000;
+}
+
 #clickCatcher {
   position: fixed;
   width: 100%;
@@ -32,6 +42,9 @@ body {
   overflow: hidden;
   max-height: 38px;
   transition: ease 0.2s;
+}
+.composer-box--transparent {
+  background: none;
 }
 .composer-box__input {
   margin-bottom: 6px;
@@ -198,8 +211,10 @@ body {
   cursor: auto;
 }
 .card__content {
+  color: #000000;
   flex: 1;
   overflow: hidden;
+  padding-left: 10px;
 }
 .card__content .editable {
   white-space: normal;

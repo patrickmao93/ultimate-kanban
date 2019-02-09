@@ -1,10 +1,10 @@
 import React from "react";
-import Overlay from "components/ui/Overlay";
+import ComposerBox from "components/ui/ComposerBox";
 
-const CardEditor = () => {
+const CardEditor = props => {
   return (
-    <div>
-      CardEditor <Overlay />
+    <div className="card-editor">
+      <ComposerBox />
     </div>
   );
 };

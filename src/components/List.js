@@ -5,7 +5,6 @@ import { DropTarget } from "react-dnd";
 import { Icon } from "semantic-ui-react";
 
 import Card from "components/card/Card";
-import Editable from "components/Editable";
 import AddCardButton from "components/AddCardButton";
 import { createCard, updateCard, deleteCard } from "actions/cards";
 import { attachToList, detachFromList } from "actions/lists";
@@ -28,7 +27,7 @@ const List = props => {
     props.updateCard(card);
   };
 
-  const handleInputClick = id => {
+  const handleClick = id => {
     const card = props.cards.find(card => card.id === id);
     card.editing = true;
     props.updateCard(card);
@@ -41,14 +40,16 @@ const List = props => {
         <Card
           key={cardId}
           onDelete={handleDeleteCard}
-          id={cardId}
+          onClick={handleClick}
           listId={props.id}
+          {...cardProps}
         >
-          <Editable
+          {/* <Editable
             {...cardProps}
             onInputClick={handleInputClick}
             onEdit={handleUpdateCard}
-          />
+          /> */}
+          <p>{cardProps.content}</p>
         </Card>
       );
     });

@@ -1,7 +1,11 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 const Overlay = props => {
-  return <div className="overlay">{props.children}</div>;
+  return ReactDOM.createPortal(
+    <div className="overlay">{props.children}</div>,
+    document.getElementById("overlay")
+  );
 };
 
 export default Overlay;
