@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import { DropTarget } from "react-dnd";
 import { Icon } from "semantic-ui-react";
 
-import Card from "components/Card";
+import Card from "components/card/Card";
 import Editable from "components/Editable";
 import AddCardButton from "components/AddCardButton";
 import { createCard, updateCard, deleteCard } from "actions/cards";

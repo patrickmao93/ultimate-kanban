@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
 
-import AddBox from "components/ui/AddBox";
+import ComposerBox from "components/ui/ComposerBox";
 import { openAddListBox, closeAddListBox } from "actions/ui";
 import { createList } from "actions/lists";
 
@@ -17,11 +17,13 @@ const AddList = props => {
   );
 
   const box = (
-    <AddBox
+    <ComposerBox
       placeholder="Enter list title..."
       onAdd={props.createList}
       onDismiss={props.closeAddListBox}
       buttonText="Add List"
+      type="input"
+      limit={25}
     />
   );
 

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
 
-import AddBox from "components/ui/AddBox";
+import ComposerBox from "components/ui/ComposerBox";
 import { openAddCardBox, closeAddCardBox } from "actions/ui";
 import { createCard } from "actions/cards";
 import { attachToList } from "actions/lists";
@@ -26,13 +26,14 @@ const AddList = props => {
   );
 
   const box = (
-    <AddBox
+    <ComposerBox
       className="list__content__composer"
       placeholder="Enter a title for this card..."
       onAdd={handleCreateCard}
       onDismiss={props.closeAddCardBox}
       buttonText="Add Card"
-      transparent={true}
+      type="textarea"
+      limit={80}
     />
   );
 

@@ -30,11 +30,25 @@ body {
   padding: 6px;
   opacity: 0.5;
   overflow: hidden;
-  max-height: 56px;
+  max-height: 38px;
   transition: ease 0.2s;
 }
 .composer-box__input {
   margin-bottom: 6px;
+  position: relative;
+}
+.composer-box__input__count {
+  text-align: right;
+  opacity: 0.3;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  color: #038387;
+  font-style: italic;
+  z-index: 10;
+}
+.composer-box__input__count--error {
+  color: #ff3434;
 }
 .composer-box__ops {
   display: flex;
@@ -167,7 +181,7 @@ body {
   padding: 0px;
 }
 .list__content__composer__input {
-  padding: 12px;
+  padding: 0px;
   margin-bottom: 8px;
 }
 
@@ -185,10 +199,11 @@ body {
 }
 .card__content {
   flex: 1;
-  white-space: normal;
   overflow: hidden;
 }
 .card__content .editable {
+  white-space: normal;
+  word-wrap: break-word;
   width: 90%;
 }
 .card__close {

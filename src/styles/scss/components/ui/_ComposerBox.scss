@@ -6,10 +6,25 @@
   padding: 6px;
   opacity: 0.5;
   overflow: hidden;
-  max-height: 56px;
+  max-height: 38px;
   transition: ease 0.2s;
   &__input {
     margin-bottom: 6px;
+    position: relative;
+    &__count {
+      text-align: right;
+      opacity: 0.3;
+      position: absolute;
+      bottom: 0px;
+      right: 5px;
+      color: $color-primary;
+      font-style: italic;
+      z-index: 10;
+
+      &--error {
+        color: $color-error;
+      }
+    }
   }
 
   &__ops {

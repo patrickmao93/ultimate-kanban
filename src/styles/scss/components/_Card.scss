@@ -15,10 +15,11 @@
 
   &__content {
     flex: 1;
-    white-space: normal;
     overflow: hidden;
 
     .editable {
+      white-space: normal;
+      word-wrap: break-word;
       width: 90%;
     }
   }
