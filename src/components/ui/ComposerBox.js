@@ -16,7 +16,7 @@ class ComposerBox extends React.Component {
     value: PropTypes.string
   };
 
-  state = { content: this.props.value, count: 0, error: {} };
+  state = { content: this.props.value || "", count: 0, error: {} };
 
   boxRef = React.createRef();
   inputRef = React.createRef();
