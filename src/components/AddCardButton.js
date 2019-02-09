@@ -29,7 +29,7 @@ const AddList = props => {
     <ComposerBox
       className="list__content__composer"
       placeholder="Enter a title for this card..."
-      onAdd={handleCreateCard}
+      onSubmit={handleCreateCard}
       onDismiss={props.closeAddCardBox}
       buttonText="Add Card"
       type="textarea"

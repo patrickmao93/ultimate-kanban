@@ -17,11 +17,11 @@ const List = props => {
     props.deleteCard(id, props.id);
   };
 
-  const handleUpdateCard = (id, content) => {
+  const handleUpdateCard = (id, content, editing = false) => {
     const card = {
       id,
       content,
-      editing: false
+      editing
     };
 
     props.updateCard(card);
@@ -40,15 +40,11 @@ const List = props => {
         <Card
           key={cardId}
           onDelete={handleDeleteCard}
+          onUpdate={handleUpdateCard}
           onClick={handleClick}
           listId={props.id}
           {...cardProps}
         >
-          {/* <Editable
-            {...cardProps}
-            onInputClick={handleInputClick}
-            onEdit={handleUpdateCard}
-          /> */}
           <p>{cardProps.content}</p>
         </Card>
       );
@@ -109,5 +105,11 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createCard, updateCard, deleteCard, attachToList, detachFromList }
+  {
+    createCard,
+    updateCard,
+    deleteCard,
+    attachToList,
+    detachFromList
+  }
 )(DropTarget(ItemTypes.CARD, cardTarget, collect)(List));

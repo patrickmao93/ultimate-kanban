@@ -19,7 +19,7 @@ const AddList = props => {
   const box = (
     <ComposerBox
       placeholder="Enter list title..."
-      onAdd={props.createList}
+      onSubmit={props.createList}
       onDismiss={props.closeAddListBox}
       buttonText="Add List"
       type="input"

@@ -2,9 +2,21 @@ import React from "react";
 import { Form, Input, TextArea, Icon, Button } from "semantic-ui-react";
 
 import ClickCatcher from "./ClickCatcher";
+import { PropTypes } from "prop-types";
 
 class ComposerBox extends React.Component {
-  state = { content: "", count: 0, error: {} };
+  static propTypes = {
+    buttonText: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    limit: PropTypes.number,
+    transparent: PropTypes.bool,
+    className: PropTypes.string,
+    onDismiss: PropTypes.func,
+    value: PropTypes.string
+  };
+
+  state = { content: this.props.value, count: 0, error: {} };
 
   boxRef = React.createRef();
   inputRef = React.createRef();
@@ -20,15 +32,14 @@ class ComposerBox extends React.Component {
 
   handleInputChange = e => {
     if (!this.props.limit) {
-      this.setState({ content: e.target.value });
-      return;
+      return this.setState({ content: e.target.value });
     }
     //if limit is set, check if input length exceeds limit
     const count = e.target.value.trim().length;
     if (count >= this.props.limit) {
-      this.setState({ error: { ...this.state.error, exceedMaxCount: true } });
+      this.setState({ error: { exceedMaxCount: true } });
     } else if (this.state.error.exceedMaxCount) {
-      this.setState({ error: { ...this.state.error, exceedMaxCount: false } });
+      this.setState({ error: { exceedMaxCount: false } });
     }
     this.setState({ content: e.target.value, count });
   };
@@ -39,7 +50,7 @@ class ComposerBox extends React.Component {
     const content = this.state.content.trim();
     if (!content || this.state.error.exceedMaxCount) return;
     this.setState({ content: "" });
-    this.props.onAdd(content);
+    this.props.onSubmit(content);
     this.inputRef.current.focus();
   };
 

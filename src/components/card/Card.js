@@ -31,8 +31,16 @@ class Card extends React.Component {
   renderEditor = () => {
     const location = this.getEditorSpawnLocation();
     return (
-      <Overlay>
-        <CardEditor location={location} />
+      <Overlay
+        onDismiss={() =>
+          this.props.onUpdate(this.props.id, this.props.content, false)
+        }
+      >
+        <CardEditor
+          location={location}
+          value={this.props.content}
+          onUpdate={content => this.props.onUpdate(this.id, content)}
+        />
       </Overlay>
     );
   };
@@ -47,12 +55,12 @@ class Card extends React.Component {
     return connectDragSource(
       // react-dnd doesn't like ref in outter div
       <div>
-        <div
-          ref={this.cardRef}
-          className="card"
-          onClick={() => this.props.onClick(this.props.id)}
-        >
-          <div ref={this.cardRef} className="card__content">
+        <div ref={this.cardRef} className="card">
+          <div
+            ref={this.cardRef}
+            className="card__content"
+            onClick={() => this.props.onClick(this.props.id)}
+          >
             {children}
           </div>
           <div className="card__close" onClick={() => onDelete(id)}>
