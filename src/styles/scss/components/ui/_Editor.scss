@@ -1,0 +1,39 @@
+.editor {
+  &__input,
+  &__button {
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    @extend %card;
+    position: relative;
+
+    &__count {
+      position: absolute;
+      right: 5px;
+      bottom: 3px;
+      color: $color-primary;
+      opacity: 0.6;
+
+      &--error {
+        color: $color-error;
+      }
+    }
+  }
+
+  &__button {
+    button {
+      padding: 10px 12px !important;
+      box-shadow: 0 1px 0 #003863 !important;
+    }
+  }
+
+  &__input textarea {
+    border: none !important;
+    padding: 0px !important;
+
+    &:focus {
+      border: none !important;
+    }
+  }
+}

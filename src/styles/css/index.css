@@ -1,8 +1,8 @@
-.card, .list__content__composer__input {
+.card, .list__content__composer__input, .editor__input {
   background: #ffffff;
   border-radius: 3px;
-  margin-bottom: 10px;
   padding: 8px;
+  margin-bottom: 10px;
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,6 +76,34 @@ body {
 }
 .composer-box__ops__close:hover {
   color: #a0a4a5;
+}
+
+.editor__input, .editor__button {
+  margin-bottom: 8px;
+}
+.editor__input {
+  position: relative;
+}
+.editor__input__count {
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  color: #038387;
+  opacity: 0.6;
+}
+.editor__input__count--error {
+  color: #ff3434;
+}
+.editor__button button {
+  padding: 10px 12px !important;
+  box-shadow: 0 1px 0 #003863 !important;
+}
+.editor__input textarea {
+  border: none !important;
+  padding: 0px !important;
+}
+.editor__input textarea:focus {
+  border: none !important;
 }
 
 .app {

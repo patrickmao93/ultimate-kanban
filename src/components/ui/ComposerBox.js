@@ -19,7 +19,7 @@ class ComposerBox extends React.Component {
 
   state = {
     content: this.props.value || "",
-    count: this.props.value && this.props.value.length,
+    count: this.props.value ? this.props.value.length : 0,
     error: {}
   };
 
