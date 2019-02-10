@@ -7,16 +7,21 @@ import { PropTypes } from "prop-types";
 class ComposerBox extends React.Component {
   static propTypes = {
     buttonText: PropTypes.string.isRequired,
+    value: PropTypes.string,
     placeholder: PropTypes.string,
     type: PropTypes.string,
     limit: PropTypes.number,
     transparent: PropTypes.bool,
     className: PropTypes.string,
     onDismiss: PropTypes.func,
-    value: PropTypes.string
+    onSubmit: PropTypes.func
   };
 
-  state = { content: this.props.value || "", count: 0, error: {} };
+  state = {
+    content: this.props.value || "",
+    count: this.props.value && this.props.value.length,
+    error: {}
+  };
 
   boxRef = React.createRef();
   inputRef = React.createRef();
@@ -76,6 +81,7 @@ class ComposerBox extends React.Component {
           onChange={this.handleInputChange}
           onKeyDown={this.handleSubmit}
           ref={this.inputRef}
+          onClick={e => e.stopPropagation()}
         />
       );
     } else {

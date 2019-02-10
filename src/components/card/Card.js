@@ -39,7 +39,7 @@ class Card extends React.Component {
         <CardEditor
           location={location}
           value={this.props.content}
-          onUpdate={content => this.props.onUpdate(this.id, content)}
+          onUpdate={content => this.props.onUpdate(this.props.id, content)}
         />
       </Overlay>
     );

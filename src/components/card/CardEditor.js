@@ -12,6 +12,7 @@ const CardEditor = props => {
         buttonText="Save"
         onSubmit={onUpdate}
         value={value}
+        limit={80}
       />
     </div>
   );
