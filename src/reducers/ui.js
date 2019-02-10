@@ -1,10 +1,10 @@
 import * as actionTypes from "actions/types";
 
 const defaultState = {
-  addListBox: {
+  addListEditor: {
     open: false
   },
-  addCardBox: {
+  addCardEditor: {
     listId: null,
     open: false
   }
@@ -12,20 +12,20 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.UI_ADD_LIST_BOX: {
-      const addListBox = {
-        ...state.addListBox,
+    case actionTypes.UI_ADD_LIST_EDITOR: {
+      const addListEditor = {
+        ...state.addListEditor,
         ...action.payload
       };
-      return { ...state, addListBox };
+      return { ...state, addListEditor };
     }
 
-    case actionTypes.UI_ADD_CARD_BOX: {
-      const addCardBox = {
-        ...state.addCardox,
+    case actionTypes.UI_ADD_CARD_EDITOR: {
+      const addCardEditor = {
+        ...state.addCardEditor,
         ...action.payload
       };
-      return { ...state, addCardBox };
+      return { ...state, addCardEditor };
     }
 
     default:

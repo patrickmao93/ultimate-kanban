@@ -2,35 +2,34 @@ import React from "react";
 import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
 
-import ComposerBox from "components/ui/ComposerBox";
-import { openAddListBox, closeAddListBox } from "actions/ui";
+import { openAddListEditor, closeAddListEditor } from "actions/ui";
 import { createList } from "actions/lists";
+import Editor from "components/ui/Editor";
 
 const AddList = props => {
   const button = (
-    <button
-      className="board__content__add__button"
-      onClick={props.openAddListBox}
-    >
+    <button className="add-list__button" onClick={props.openAddListEditor}>
       <Icon name="plus" /> Add another list
     </button>
   );
 
-  const box = (
-    <ComposerBox
+  const editor = (
+    <Editor
+      className="add-list__editor"
       placeholder="Enter list title..."
       onSubmit={props.createList}
-      onDismiss={props.closeAddListBox}
-      buttonText="Add List"
-      type="input"
+      onDismiss={props.closeAddListEditor}
       limit={25}
-    />
+    >
+      <Editor.Input fluid autoFocus />
+      <Editor.Button content="Add List" />
+    </Editor>
   );
 
-  return props.open ? box : button;
+  return <div className="add-list">{props.open ? editor : button}</div>;
 };
 
 export default connect(
   null,
-  { openAddListBox, closeAddListBox, createList }
+  { openAddListEditor, closeAddListEditor, createList }
 )(AddList);

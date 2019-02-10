@@ -1,26 +1,26 @@
 import * as actionTypes from "./types";
 
-export const openAddListBox = () => {
+export const openAddListEditor = () => {
   return {
-    type: actionTypes.UI_ADD_LIST_BOX,
+    type: actionTypes.UI_ADD_LIST_EDITOR,
     payload: {
       open: true
     }
   };
 };
 
-export const closeAddListBox = () => {
+export const closeAddListEditor = () => {
   return {
-    type: actionTypes.UI_ADD_LIST_BOX,
+    type: actionTypes.UI_ADD_LIST_EDITOR,
     payload: {
       open: false
     }
   };
 };
 
-export const openAddCardBox = listId => {
+export const openAddCardEditor = listId => {
   return {
-    type: actionTypes.UI_ADD_CARD_BOX,
+    type: actionTypes.UI_ADD_CARD_EDITOR,
     payload: {
       listId,
       open: true
@@ -28,9 +28,9 @@ export const openAddCardBox = listId => {
   };
 };
 
-export const closeAddCardBox = () => {
+export const closeAddCardEditor = () => {
   return {
-    type: actionTypes.UI_ADD_CARD_BOX,
+    type: actionTypes.UI_ADD_CARD_EDITOR,
     payload: {
       listId: null,
       open: false

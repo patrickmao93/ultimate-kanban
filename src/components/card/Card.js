@@ -53,16 +53,14 @@ class Card extends React.Component {
   renderCard = () => {
     const { connectDragSource, children, id, onDelete } = this.props;
     return connectDragSource(
-      // react-dnd doesn't like ref in outter div
+      // react-dnd doesn't like refs in outter div
       <div>
-        <div ref={this.cardRef} className="card">
-          <div
-            ref={this.cardRef}
-            className="card__content"
-            onClick={() => this.props.onClick(this.props.id)}
-          >
-            {children}
-          </div>
+        <div
+          ref={this.cardRef}
+          className="card"
+          onClick={() => this.props.onClick(this.props.id)}
+        >
+          <div className="card__content">{children}</div>
           <div className="card__close" onClick={() => onDelete(id)}>
             <Icon name="times" />
           </div>

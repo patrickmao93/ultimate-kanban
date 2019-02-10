@@ -41,7 +41,7 @@ const Board = props => {
       <div className="board__content">
         {lists}
         <div className="board__content__add">
-          <AddListButton open={props.addListBox.open} />
+          <AddListButton open={props.addListEditor.open} />
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ Board.propTypes = {
 
 const mapStateToProps = state => ({
   lists: state.lists,
-  addListBox: state.ui.addListBox
+  addListEditor: state.ui.addListEditor
 });
 
 export default connect(

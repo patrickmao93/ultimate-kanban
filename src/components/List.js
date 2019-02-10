@@ -66,7 +66,7 @@ const List = props => {
       <div className="list__content">
         {renderCards()}
         <AddCardButton
-          open={props.addCardBox.open && id === props.addCardBox.listId}
+          open={props.addCardEditor.open && id === props.addCardEditor.listId}
           listId={id}
         />
       </div>
@@ -100,7 +100,7 @@ List.propTypes = {
 const mapStateToProps = state => ({
   lists: state.lists,
   cards: state.cards,
-  addCardBox: state.ui.addCardBox
+  addCardEditor: state.ui.addCardEditor
 });
 
 export default connect(

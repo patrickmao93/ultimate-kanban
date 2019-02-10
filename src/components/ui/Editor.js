@@ -55,38 +55,24 @@ class Editor extends React.Component {
     this.props.onSubmit(content);
   };
 
-  componentDidMount() {
-    this.inputRef.current.focus();
-    this.inputRef.current.select();
-  }
-
   //renders either input or textarea
   renderInput = child => {
-    const { className, placeholder, limit } = this.props;
+    const { placeholder, limit } = this.props;
     const { count, error } = this.state;
 
     const renderCount = () => {
-      let countClassName = "editor__input__count ";
-      if (error.exceedMaxCount) {
-        countClassName += "editor__input__count--error";
-      }
-
-      if (className) {
-        countClassName = className + "__input__count ";
-        if (error.exceedMaxCount) {
-          countClassName += className + "__input__count--error";
-        }
-      }
-
       return (
-        <div className={countClassName}>
+        <div
+          className={`editor__input__count ${error.exceedMaxCount &&
+            "editor__input__count--error"}`}
+        >
           <span>{limit && count + "/" + limit}</span>
         </div>
       );
     };
 
     return (
-      <div className={className ? className + "__input" : "editor__input"}>
+      <div className="editor__input">
         <Ref innerRef={this.inputRef}>
           {React.cloneElement(child, {
             placeholder,
@@ -101,9 +87,8 @@ class Editor extends React.Component {
   };
 
   renderButton = child => {
-    const { className } = this.props;
     return (
-      <div className={className ? className + "__button" : "editor__button"}>
+      <div className="editor__button">
         {React.cloneElement(child, {
           primary: true,
           onClick: this.handleSubmit
@@ -128,10 +113,16 @@ class Editor extends React.Component {
     });
   };
 
+  componentDidMount() {
+    this.inputRef.current.focus();
+    console.log(this.inputRef);
+    // this.inputRef.current.select();
+  }
+
   render() {
     const { className, onDismiss } = this.props;
     return (
-      <Form className={className || "editor"} onSubmit={this.handleSubmit}>
+      <Form className={`editor ${className}`} onSubmit={this.handleSubmit}>
         {this.renderChildren()}
         <ClickCatcher onDismiss={onDismiss} />
       </Form>

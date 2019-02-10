@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
 
 import Editor from "components/ui/Editor";
-import { openAddCardBox, closeAddCardBox } from "actions/ui";
+import { openAddCardEditor, closeAddCardEditor } from "actions/ui";
 import { createCard } from "actions/cards";
 import { attachToList } from "actions/lists";
 
@@ -18,29 +18,29 @@ const AddList = props => {
   const button = (
     <button
       className="list__content__button"
-      onClick={() => props.openAddCardBox(props.listId)}
+      onClick={() => props.openAddCardEditor(props.listId)}
     >
       <Icon name="plus" />
       <span>Add another card</span>
     </button>
   );
 
-  const box = (
+  const editor = (
     <Editor
       placeholder="Enter a title for this card..."
       onSubmit={handleCreateCard}
-      onDismiss={props.closeAddCardBox}
+      onDismiss={props.closeAddCardEditor}
       limit={80}
     >
-      <Editor.TextArea autoHeight />
+      <Editor.TextArea autoHeight autoFocus />
       <Editor.Button content="Add Card" />
     </Editor>
   );
 
-  return props.open ? box : button;
+  return props.open ? editor : button;
 };
 
 export default connect(
   null,
-  { openAddCardBox, closeAddCardBox, createCard, attachToList }
+  { openAddCardEditor, closeAddCardEditor, createCard, attachToList }
 )(AddList);

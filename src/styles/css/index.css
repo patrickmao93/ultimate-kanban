@@ -6,6 +6,17 @@
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
+.board__content__add .add-list__editor {
+  pointer-events: all;
+  min-width: 280px;
+  max-width: 280px;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  background: #eceff1;
+}
+
 body {
   font-family: sans-serif;
   color: white;
@@ -78,6 +89,9 @@ body {
   color: #a0a4a5;
 }
 
+.editor {
+  pointer-events: all;
+}
 .editor__input, .editor__button {
   margin-bottom: 8px;
 }
@@ -98,11 +112,11 @@ body {
   padding: 10px 12px !important;
   box-shadow: 0 1px 0 #003863 !important;
 }
-.editor__input textarea {
+.editor__input textarea, .editor__input input {
   border: none !important;
   padding: 0px !important;
 }
-.editor__input textarea:focus {
+.editor__input textarea:focus, .editor__input input:focus {
   border: none !important;
 }
 
@@ -130,8 +144,10 @@ body {
   min-width: 280px;
   max-width: 280px;
 }
-.board__content__add__button {
+.board__content__add .add-list {
   pointer-events: all;
+}
+.board__content__add .add-list__button {
   width: 100%;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -143,8 +159,12 @@ body {
   font-size: 1rem;
   outline: none;
 }
-.board__content__add__button:hover {
+.board__content__add .add-list__button:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+.board__content__add .add-list__editor {
+  padding: 8px;
+  padding-bottom: 0px;
 }
 
 .list {

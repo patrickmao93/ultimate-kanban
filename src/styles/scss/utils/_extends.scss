@@ -5,3 +5,14 @@
   margin-bottom: 10px;
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+%list {
+  pointer-events: all;
+  min-width: 280px;
+  max-width: 280px;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  background: $color-secondary;
+}

@@ -17,20 +17,28 @@
       min-width: 280px;
       max-width: 280px;
 
-      &__button {
+      .add-list {
         pointer-events: all;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        padding: 15px;
-        border: none;
-        color: white;
-        cursor: pointer;
-        text-align: left;
-        font-size: 1rem;
-        outline: none;
-        &:hover {
-          background: rgba(0, 0, 0, 0.2);
+        &__button {
+          width: 100%;
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 6px;
+          padding: 15px;
+          border: none;
+          color: white;
+          cursor: pointer;
+          text-align: left;
+          font-size: 1rem;
+          outline: none;
+          &:hover {
+            background: rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        &__editor {
+          @extend %list;
+          padding: 8px;
+          padding-bottom: 0px;
         }
       }
     }
