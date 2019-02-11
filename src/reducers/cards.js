@@ -8,7 +8,7 @@ export default (state = [], action) => {
     case actionTypes.UPDATE_CARD: {
       const newState = state.slice(0);
       const index = newState.findIndex(card => card.id === action.payload.id);
-      newState[index] = action.payload;
+      newState[index] = { ...newState[index], ...action.payload };
       return newState;
     }
 

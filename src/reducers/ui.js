@@ -2,6 +2,7 @@ import * as actionTypes from "actions/types";
 
 const defaultState = {
   addListEditor: {
+    boardId: null,
     open: false
   },
   addCardEditor: {

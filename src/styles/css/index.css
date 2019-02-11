@@ -130,20 +130,42 @@ body {
   background: #038387;
 }
 
+.app-bar {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  background: #006e74;
+}
+.app-bar__boards-button {
+  background: #4fb3b7 !important;
+  padding: 8px 10px !important;
+  font-size: 16px !important;
+}
+.app-bar__boards-button:hover {
+  background: #038387 !important;
+}
+
 .board {
   pointer-events: none;
   position: relative;
-  padding: 20px;
   border-radius: 10px;
 }
 .board__header {
-  padding: 14px;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px;
+}
+.board__header__board-name {
+  display: inline-block;
+  vertical-align: center;
+  height: 32px;
+  color: #ffffff;
   font-weight: bold;
 }
 .board__content {
   display: flex;
   align-items: flex-start;
+  padding: 0 8px;
 }
 .board__content__add {
   min-width: 280px;
@@ -308,10 +330,16 @@ body {
   border: 2px solid transparent;
   width: 90%;
 }
+.editable:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 .editable--editing {
   cursor: auto;
   background: #ffffff;
   border: 2px solid #4fb3b7;
+}
+.editable--editing:hover {
+  background: #ffffff;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -16,7 +16,7 @@ class Editable extends React.Component {
   };
 
   onInputClick = e => {
-    this.props.onInputClick(this.props.id);
+    this.props.onClick(this.props.id);
   };
 
   handleFinishEdit = e => {

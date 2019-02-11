@@ -1,17 +1,25 @@
 .board {
   pointer-events: none;
   position: relative;
-  padding: 20px;
   border-radius: 10px;
 
   &__header {
-    padding: 14px;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    padding: 8px;
+
+    &__board-name {
+      display: inline-block;
+      vertical-align: center;
+      height: 32px;
+      color: $color-secondary-light;
+      font-weight: bold;
+    }
   }
   &__content {
     display: flex;
     align-items: flex-start;
+    padding: 0 8px;
 
     &__add {
       min-width: 280px;

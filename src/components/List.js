@@ -5,16 +5,22 @@ import { DropTarget } from "react-dnd";
 import { Icon } from "semantic-ui-react";
 
 import Card from "components/card/Card";
+import Editable from "components/ui/Editable";
 import AddCardButton from "components/AddCardButton";
 import { createCard, updateCard, deleteCard } from "actions/cards";
 import { attachToList, detachFromList } from "actions/lists";
 import * as ItemTypes from "constants/ItemTypes";
 
 const List = props => {
-  const { id, cardIds, onDelete, connectDropTarget } = props;
+  const { id, name, editing, cardIds, onDelete, connectDropTarget } = props;
 
-  const handleDeleteCard = id => {
-    props.deleteCard(id, props.id);
+  const handleCreateCard = content => {
+    const card = props.createCard(content);
+    props.attachToList(props.id, card.payload.id);
+  };
+
+  const handleDeleteCard = cardId => {
+    props.deleteCard(props.id, cardId);
   };
 
   const handleUpdateCard = (id, content, editing = false) => {
@@ -23,7 +29,6 @@ const List = props => {
       content,
       editing
     };
-
     props.updateCard(card);
   };
 
@@ -31,6 +36,10 @@ const List = props => {
     const card = props.cards.find(card => card.id === id);
     card.editing = true;
     props.updateCard(card);
+  };
+
+  const handleNameClick = id => {
+    props.updateEditingStatus(id, true);
   };
 
   const renderCards = () => {
@@ -65,6 +74,7 @@ const List = props => {
         {renderCards()}
         <AddCardButton
           open={props.addCardEditor.open && id === props.addCardEditor.listId}
+          onCreateCard={handleCreateCard}
           listId={id}
         />
       </div>

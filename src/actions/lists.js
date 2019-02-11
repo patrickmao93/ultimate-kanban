@@ -14,40 +14,30 @@ export const createList = title => {
   };
 };
 
-export const deleteList = id => {
+export const deleteList = (boardId, listId) => {
   return {
     type: actionTypes.DELETE_LIST,
-    payload: { id }
+    payload: { boardId, listId }
   };
 };
 
-export const updateListName = (id, name) => {
+export const updateList = (listId, name, editing = false) => {
   return {
-    type: actionTypes.UPDATE_LIST_NAME,
+    type: actionTypes.UPDATE_LIST,
     payload: {
-      id,
+      listId,
       name,
-      editing: false
-    }
-  };
-};
-
-export const updateEditingStatus = (id, editing) => {
-  return {
-    type: actionTypes.UPDATE_EDITING_STATUS,
-    payload: {
-      id,
       editing
     }
   };
 };
 
-export const attachToList = (cardId, listId) => {
+export const attachToList = (listId, cardId) => {
   return {
     type: actionTypes.ATTACH_TO_LIST,
     payload: {
-      listId,
-      cardId
+      cardId,
+      listId
     }
   };
 };

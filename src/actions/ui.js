@@ -1,9 +1,10 @@
 import * as actionTypes from "./types";
 
-export const openAddListEditor = () => {
+export const openAddListEditor = boardId => {
   return {
     type: actionTypes.UI_ADD_LIST_EDITOR,
     payload: {
+      boardId,
       open: true
     }
   };

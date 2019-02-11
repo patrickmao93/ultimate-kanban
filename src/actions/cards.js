@@ -8,7 +8,8 @@ export const createCard = content => {
     payload: {
       id: uuid(),
       editing: false,
-      content
+      content,
+      labels: []
     }
   };
 };
@@ -20,7 +21,7 @@ export const updateCard = card => {
   };
 };
 
-export const deleteCard = (cardId, listId) => {
+export const deleteCard = (listId, cardId) => {
   return {
     type: actionTypes.DELETE_CARD,
     payload: {

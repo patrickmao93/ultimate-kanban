@@ -6,9 +6,12 @@ import { openAddListEditor, closeAddListEditor } from "actions/ui";
 import { createList } from "actions/lists";
 import Editor from "components/ui/Editor";
 
-const AddList = props => {
+const AddListButton = props => {
   const button = (
-    <button className="add-list__button" onClick={props.openAddListEditor}>
+    <button
+      className="add-list__button"
+      onClick={() => props.openAddListEditor(props.boardId)}
+    >
       <Icon name="plus" /> Add another list
     </button>
   );
@@ -32,4 +35,4 @@ const AddList = props => {
 export default connect(
   null,
   { openAddListEditor, closeAddListEditor, createList }
-)(AddList);
+)(AddListButton);

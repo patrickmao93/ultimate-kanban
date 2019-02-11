@@ -8,9 +8,16 @@
   border: 2px solid transparent;
   width: 90%;
 
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.1);
+  }
+
   &--editing {
     cursor: auto;
     background: $color-secondary-light;
     border: 2px solid $color-primary-light;
+    &:hover {
+      background: $color-secondary-light;
+    }
   }
 }

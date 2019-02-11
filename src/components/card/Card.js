@@ -1,6 +1,6 @@
 import React from "react";
 import { DragSource } from "react-dnd";
-import { Icon } from "semantic-ui-react";
+import { Icon, Label } from "semantic-ui-react";
 
 import * as ItemTypes from "constants/ItemTypes";
 import CardEditor from "./CardEditor";
@@ -28,14 +28,14 @@ const collect = (connect, monitor) => {
 class Card extends React.Component {
   cardRef = React.createRef();
 
-  getEditorSpawnLocation = () => {
+  getLocation = () => {
     const { x, y } = this.cardRef.current.getClientRects()[0];
     return { x, y };
   };
 
   renderEditor = () => {
     const { id, content, onUpdate } = this.props;
-    const location = this.getEditorSpawnLocation();
+    const location = this.getLocation();
     return (
       <Overlay onDismiss={() => onUpdate(id, content, false)}>
         <CardEditor
@@ -57,6 +57,9 @@ class Card extends React.Component {
           className="card"
           onClick={() => this.props.onClick(id)}
         >
+          <div className="card__labels">
+            {/* <Label circular empty color="red" /> */}
+          </div>
           <div className="card__content">
             <p>{content}</p>
           </div>

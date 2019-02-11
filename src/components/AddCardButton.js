@@ -7,14 +7,7 @@ import { openAddCardEditor, closeAddCardEditor } from "actions/ui";
 import { createCard } from "actions/cards";
 import { attachToList } from "actions/lists";
 
-const AddList = props => {
-  const { listId } = props;
-
-  const handleCreateCard = content => {
-    const card = props.createCard(content);
-    props.attachToList(card.payload.id, listId);
-  };
-
+const AddCardButton = props => {
   const button = (
     <button
       className="list__content__button"
@@ -28,7 +21,7 @@ const AddList = props => {
   const editor = (
     <Editor
       placeholder="Enter a title for this card..."
-      onSubmit={handleCreateCard}
+      onSubmit={props.onCreateCard}
       onDismiss={props.closeAddCardEditor}
       limit={80}
     >
@@ -43,4 +36,4 @@ const AddList = props => {
 export default connect(
   null,
   { openAddCardEditor, closeAddCardEditor, createCard, attachToList }
-)(AddList);
+)(AddCardButton);

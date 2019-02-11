@@ -1,0 +1,16 @@
+.app-bar {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  background: $color-primary-dark;
+
+  &__boards-button {
+    background: $color-primary-light !important;
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+
+    &:hover {
+      background: $color-primary !important;
+    }
+  }
+}
