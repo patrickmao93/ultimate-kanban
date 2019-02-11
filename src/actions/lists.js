@@ -2,12 +2,12 @@ import uuid from "uuid/v4";
 
 import * as actionTypes from "actions/types";
 
-export const createList = title => {
+export const createList = name => {
   return {
     type: actionTypes.CREATE_LIST,
     payload: {
       id: uuid(),
-      name: title,
+      name,
       editing: false,
       cardIds: []
     }
@@ -42,7 +42,7 @@ export const attachToList = (listId, cardId) => {
   };
 };
 
-export const detachFromList = (cardId, listId) => {
+export const detachFromList = (listId, cardId) => {
   return {
     type: actionTypes.DETACH_FROM_LIST,
     payload: {

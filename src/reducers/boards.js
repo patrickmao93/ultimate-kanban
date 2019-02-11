@@ -24,6 +24,15 @@ export default (state = defaultState, action) => {
       return newState;
     }
 
+    case actionTypes.ATTACH_TO_BOARD: {
+      const { boardId, listId } = action.payload;
+      const newState = Object.assign({}, state);
+      if (newState[boardId]) {
+        newState[boardId].listIds.push(listId);
+      }
+      return newState;
+    }
+
     default:
       break;
   }

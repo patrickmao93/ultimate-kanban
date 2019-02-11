@@ -48,8 +48,8 @@ const Board = props => {
       <div className="board__header">
         <Editable
           className="board__header__board-name"
-          onInputClick={handleNameClick}
-          onEdit={props.updateListName}
+          onClick={handleNameClick}
+          onEdit={props.updateList}
           content="tasks"
         />
       </div>

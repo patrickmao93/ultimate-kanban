@@ -13,8 +13,7 @@ const defaultState = {
 };
 
 const copyState = state => {
-  const newState = state.slice(0);
-  return newState;
+  return Object.assign({}, state);
 };
 
 export default (state = defaultState, action) => {
@@ -40,12 +39,9 @@ export default (state = defaultState, action) => {
 
     case actionTypes.DETACH_FROM_LIST: {
       const { listId, cardId } = action.payload;
-      const newState = copyState(state);
-      const listIndex = newState.findIndex(list => list.id === listId);
-      const cardIndex = newState[listIndex].cardIds.findIndex(
-        card => card === cardId
-      );
-      newState[listIndex].cardIds.splice(cardIndex, 1);
+      const newState = Object.assign({}, state);
+      const index = newState[listId].cardIds.indexOf(cardId);
+      newState[listId].cardIds.splice(index, 1);
       return newState;
     }
 
@@ -60,7 +56,7 @@ export default (state = defaultState, action) => {
     case actionTypes.DELETE_CARD: {
       const { cardId, listId } = action.payload;
       const newState = copyState(state);
-      const list = newState.find(list => list.id === listId);
+      const list = newState[listId];
 
       if (!list) {
         return state;

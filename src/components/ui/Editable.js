@@ -7,16 +7,12 @@ class Editable extends React.Component {
     editing: PropTypes.bool,
     content: PropTypes.string,
     onEdit: PropTypes.func.isRequired,
-    onInputClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     className: PropTypes.string
   };
 
   static defaultProps = {
     editing: false
-  };
-
-  onInputClick = e => {
-    this.props.onClick(this.props.id);
   };
 
   handleFinishEdit = e => {
@@ -30,7 +26,7 @@ class Editable extends React.Component {
       <input
         type="text"
         className={`editable ${this.props.className}`}
-        onClick={this.onInputClick}
+        onClick={this.props.onClick}
         defaultValue={this.props.content}
         readOnly
       />

@@ -4,9 +4,15 @@ import { Icon } from "semantic-ui-react";
 
 import { openAddListEditor, closeAddListEditor } from "actions/ui";
 import { createList } from "actions/lists";
+import { attachToBoard } from "actions/boards";
 import Editor from "components/ui/Editor";
 
 const AddListButton = props => {
+  const handleCreateList = listName => {
+    const list = props.createList(listName);
+    props.attachToBoard(props.boardId, list.payload.id);
+  };
+
   const button = (
     <button
       className="add-list__button"
@@ -20,7 +26,7 @@ const AddListButton = props => {
     <Editor
       className="add-list__editor"
       placeholder="Enter list title..."
-      onSubmit={props.createList}
+      onSubmit={handleCreateList}
       onDismiss={props.closeAddListEditor}
       limit={25}
     >
@@ -34,5 +40,5 @@ const AddListButton = props => {
 
 export default connect(
   null,
-  { openAddListEditor, closeAddListEditor, createList }
+  { openAddListEditor, closeAddListEditor, createList, attachToBoard }
 )(AddListButton);
