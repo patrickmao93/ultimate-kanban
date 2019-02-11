@@ -1,4 +1,4 @@
-.card, .list__content__composer__input, .editor__input {
+.card, .list__content__composer__input, .editor__textarea {
   background: #ffffff;
   border-radius: 3px;
   padding: 8px;
@@ -91,32 +91,36 @@ body {
 
 .editor {
   pointer-events: all;
+  transition: ease 0.2s;
+  opacity: 0.5;
+  max-height: 38px;
 }
-.editor__input, .editor__button {
+.editor__textarea, .editor__input, .editor__button {
   margin-bottom: 8px;
-}
-.editor__input {
   position: relative;
 }
-.editor__input__count {
+.editor__textarea {
+  position: relative;
+}
+.editor__count {
   position: absolute;
   right: 5px;
   bottom: 3px;
   color: #038387;
   opacity: 0.6;
 }
-.editor__input__count--error {
+.editor__count--error {
   color: #ff3434;
 }
 .editor__button button {
   padding: 10px 12px !important;
   box-shadow: 0 1px 0 #003863 !important;
 }
-.editor__input textarea, .editor__input input {
+.editor__textarea textarea {
   border: none !important;
   padding: 0px !important;
 }
-.editor__input textarea:focus, .editor__input input:focus {
+.editor__textarea textarea:focus {
   border: none !important;
 }
 

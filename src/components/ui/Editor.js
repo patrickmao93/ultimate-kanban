@@ -10,6 +10,7 @@ class Editor extends React.Component {
     count: this.props.value ? this.props.value.length : 0,
     error: {}
   };
+  editorRef = React.createRef();
   inputRef = React.createRef();
 
   static propTypes = {
@@ -24,6 +25,16 @@ class Editor extends React.Component {
   static Input = Input;
   static TextArea = TextArea;
   static Button = Button;
+
+  handleDismiss = () => {
+    const style = this.editorRef.current.style;
+    style.opacity = 0;
+    style.maxHeight = "36px";
+
+    setTimeout(() => {
+      this.props.onDismiss();
+    }, 160);
+  };
 
   handleInputChange = e => {
     if (!this.props.limit) {
@@ -55,24 +66,30 @@ class Editor extends React.Component {
     this.props.onSubmit(content);
   };
 
-  //renders either input or textarea
+  //renders Input component
   renderInput = child => {
-    const { placeholder, limit } = this.props;
-    const { count, error } = this.state;
-
-    const renderCount = () => {
-      return (
-        <div
-          className={`editor__input__count ${error.exceedMaxCount &&
-            "editor__input__count--error"}`}
-        >
-          <span>{limit && count + "/" + limit}</span>
-        </div>
-      );
-    };
+    const { placeholder } = this.props;
 
     return (
-      <div className="editor__input">
+      <div className={`editor__input`}>
+        {React.cloneElement(child, {
+          placeholder,
+          value: this.state.content,
+          onChange: this.handleInputChange,
+          onKeyDown: this.handleKeyDown,
+          ref: this.inputRef
+        })}
+        {this.renderCount()}
+      </div>
+    );
+  };
+
+  //renders Input component
+  renderTextArea = child => {
+    const { placeholder } = this.props;
+
+    return (
+      <div className={`editor__textarea`}>
         <Ref innerRef={this.inputRef}>
           {React.cloneElement(child, {
             placeholder,
@@ -81,7 +98,21 @@ class Editor extends React.Component {
             onKeyDown: this.handleKeyDown
           })}
         </Ref>
-        {renderCount()}
+        {this.renderCount()}
+      </div>
+    );
+  };
+
+  renderCount = () => {
+    const { limit } = this.props;
+    const { count, error } = this.state;
+
+    return (
+      <div
+        className={`editor__count ${error.exceedMaxCount &&
+          "editor__count--error"}`}
+      >
+        <span>{limit && count + "/" + limit}</span>
       </div>
     );
   };
@@ -103,8 +134,9 @@ class Editor extends React.Component {
       const name = child.type.name;
       switch (name) {
         case "Input":
-        case "TextArea":
           return this.renderInput(child);
+        case "TextArea":
+          return this.renderTextArea(child);
         case "Button":
           return this.renderButton(child);
         default:
@@ -115,17 +147,22 @@ class Editor extends React.Component {
 
   componentDidMount() {
     this.inputRef.current.focus();
-    console.log(this.inputRef);
-    // this.inputRef.current.select();
+    this.inputRef.current.select();
+
+    const style = this.editorRef.current.style;
+    style.opacity = 1;
+    style.maxHeight = "200px";
   }
 
   render() {
-    const { className, onDismiss } = this.props;
+    const { className } = this.props;
     return (
-      <Form className={`editor ${className}`} onSubmit={this.handleSubmit}>
-        {this.renderChildren()}
-        <ClickCatcher onDismiss={onDismiss} />
-      </Form>
+      <Ref innerRef={this.editorRef}>
+        <Form className={`editor ${className}`} onSubmit={this.handleSubmit}>
+          {this.renderChildren()}
+          <ClickCatcher onDismiss={this.handleDismiss} />
+        </Form>
+      </Ref>
     );
   }
 }

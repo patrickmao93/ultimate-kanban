@@ -1,24 +1,33 @@
 .editor {
   pointer-events: all;
+  transition: ease 0.2s;
+  opacity: 0.5;
+  max-height: 38px;
+
+  &__textarea,
   &__input,
   &__button {
     margin-bottom: 8px;
+    position: relative;
+  }
+
+  &__textarea {
+    @extend %card;
+    position: relative;
   }
 
   &__input {
-    @extend %card;
-    position: relative;
+  }
 
-    &__count {
-      position: absolute;
-      right: 5px;
-      bottom: 3px;
-      color: $color-primary;
-      opacity: 0.6;
+  &__count {
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    color: $color-primary;
+    opacity: 0.6;
 
-      &--error {
-        color: $color-error;
-      }
+    &--error {
+      color: $color-error;
     }
   }
 
@@ -29,8 +38,7 @@
     }
   }
 
-  &__input textarea,
-  &__input input {
+  &__textarea textarea {
     border: none !important;
     padding: 0px !important;
 
