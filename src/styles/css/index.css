@@ -35,6 +35,7 @@ body {
 }
 
 #clickCatcher {
+  pointer-events: all;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -169,7 +170,6 @@ body {
 }
 
 .board {
-  pointer-events: none;
   position: relative;
   border-radius: 10px;
 }
@@ -178,6 +178,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 8px;
+  position: relative;
 }
 .board__header__board-name {
   color: #ffffff;
@@ -194,6 +195,7 @@ body {
 }
 .board__content__add .add-list {
   pointer-events: all;
+  position: relative;
 }
 .board__content__add .add-list__button {
   width: 100%;

@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 
 class Editable extends React.Component {
   state = { content: this.props.content };
+  inputRef = React.createRef();
 
   static propTypes = {
     id: PropTypes.string,
@@ -50,18 +51,24 @@ class Editable extends React.Component {
   renderEdit = () => {
     return (
       <input
+        ref={this.inputRef}
         type="text"
         className={`editable editable--editing ${this.props.className}`}
         onKeyDown={this.handleFinishEdit}
         onBlur={this.handleFinishEdit}
         onChange={this.handleInputChange}
         defaultValue={this.props.content}
-        onFocus={e => e.target.select()}
         autoFocus={true}
         value={this.state.content}
       />
     );
   };
+
+  componentDidUpdate() {
+    if (this.inputRef.current) {
+      this.inputRef.current.select();
+    }
+  }
 
   render() {
     return this.props.editing ? this.renderEdit() : this.renderValue();
