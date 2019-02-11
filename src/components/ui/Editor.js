@@ -26,6 +26,10 @@ class Editor extends React.Component {
   static TextArea = TextArea;
   static Button = Button;
 
+  handleClick = e => {
+    e.stopPropagation();
+  };
+
   handleDismiss = () => {
     const style = this.editorRef.current.style;
     style.opacity = 0;
@@ -158,7 +162,11 @@ class Editor extends React.Component {
     const { className } = this.props;
     return (
       <Ref innerRef={this.editorRef}>
-        <Form className={`editor ${className}`} onSubmit={this.handleSubmit}>
+        <Form
+          className={`editor ${className}`}
+          onSubmit={this.handleSubmit}
+          onClick={this.handleClick}
+        >
           {this.renderChildren()}
           <ClickCatcher onDismiss={this.handleDismiss} />
         </Form>

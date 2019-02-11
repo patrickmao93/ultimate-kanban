@@ -44,9 +44,7 @@ const List = props => {
           onClick={handleClick}
           listId={props.id}
           {...cardProps}
-        >
-          <p>{cardProps.content}</p>
-        </Card>
+        />
       );
     });
   };
@@ -74,6 +72,12 @@ const List = props => {
   );
 };
 
+List.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  cards: PropTypes.array.isRequired
+};
+
 const cardTarget = {
   drop(props, monitor) {
     const cardId = monitor.getItem().id;
@@ -89,12 +93,6 @@ const collect = (dndConnect, monitor) => {
     connectDropTarget: dndConnect.dropTarget(),
     isOver: monitor.isOver()
   };
-};
-
-List.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  cards: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({

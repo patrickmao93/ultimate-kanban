@@ -28,43 +28,42 @@ const collect = (connect, monitor) => {
 class Card extends React.Component {
   cardRef = React.createRef();
 
-  renderEditor = () => {
-    const location = this.getEditorSpawnLocation();
-    return (
-      <Overlay
-        onDismiss={() =>
-          this.props.onUpdate(this.props.id, this.props.content, false)
-        }
-      >
-        <CardEditor
-          location={location}
-          value={this.props.content}
-          onUpdate={content => this.props.onUpdate(this.props.id, content)}
-        />
-      </Overlay>
-    );
-  };
-
   getEditorSpawnLocation = () => {
     const { x, y } = this.cardRef.current.getClientRects()[0];
     return { x, y };
   };
 
+  renderEditor = () => {
+    const { id, content, onUpdate } = this.props;
+    const location = this.getEditorSpawnLocation();
+    return (
+      <Overlay onDismiss={() => onUpdate(id, content, false)}>
+        <CardEditor
+          location={location}
+          value={content}
+          onUpdate={content => onUpdate(id, content)}
+        />
+      </Overlay>
+    );
+  };
+
   renderCard = () => {
-    const { connectDragSource, children, id, onDelete } = this.props;
+    const { connectDragSource, id, onDelete, editing, content } = this.props;
     return connectDragSource(
       // react-dnd doesn't like refs in outter div
       <div>
         <div
           ref={this.cardRef}
           className="card"
-          onClick={() => this.props.onClick(this.props.id)}
+          onClick={() => this.props.onClick(id)}
         >
-          <div className="card__content">{children}</div>
+          <div className="card__content">
+            <p>{content}</p>
+          </div>
           <div className="card__close" onClick={() => onDelete(id)}>
             <Icon name="times" />
           </div>
-          {this.props.editing && this.renderEditor()}
+          {editing && this.renderEditor()}
         </div>
       </div>
     );

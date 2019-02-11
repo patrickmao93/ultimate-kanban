@@ -24,6 +24,7 @@ body {
 }
 
 .overlay {
+  pointer-events: all;
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0px;
@@ -294,6 +295,7 @@ body {
 .card-editor {
   width: 280px;
   position: absolute;
+  padding: 8px;
 }
 
 .editable {

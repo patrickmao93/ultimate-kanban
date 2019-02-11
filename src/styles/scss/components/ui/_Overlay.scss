@@ -1,4 +1,5 @@
 .overlay {
+  pointer-events: all;
   background: rgba($color: #000000, $alpha: 0.6);
   position: fixed;
   top: 0px;
