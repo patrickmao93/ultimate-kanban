@@ -2,6 +2,8 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 class Editable extends React.Component {
+  state = { content: this.props.content };
+
   static propTypes = {
     id: PropTypes.string,
     editing: PropTypes.bool,
@@ -16,9 +18,20 @@ class Editable extends React.Component {
   };
 
   handleFinishEdit = e => {
+    const { content, id, onEdit } = this.props;
     if (e.type === "keydown" && e.key !== "Enter") return;
 
-    this.props.onEdit(this.props.id, e.target.value);
+    const formatted = this.state.content.trim();
+    if (!formatted) {
+      this.setState({ content });
+      return onEdit(id, content);
+    }
+
+    onEdit(id, e.target.value);
+  };
+
+  handleInputChange = e => {
+    this.setState({ content: e.target.value });
   };
 
   renderValue = () => {
@@ -27,7 +40,8 @@ class Editable extends React.Component {
         type="text"
         className={`editable ${this.props.className}`}
         onClick={this.props.onClick}
-        defaultValue={this.props.content}
+        value={this.state.content}
+        onChange={this.handleInputChange}
         readOnly
       />
     );
@@ -40,9 +54,11 @@ class Editable extends React.Component {
         className={`editable editable--editing ${this.props.className}`}
         onKeyDown={this.handleFinishEdit}
         onBlur={this.handleFinishEdit}
+        onChange={this.handleInputChange}
         defaultValue={this.props.content}
         onFocus={e => e.target.select()}
         autoFocus={true}
+        value={this.state.content}
       />
     );
   };

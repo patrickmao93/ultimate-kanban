@@ -6,13 +6,16 @@ import List from "components/List";
 import Editable from "components/ui/Editable";
 import AddListButton from "components/AddListButton";
 import { updateList, createList, deleteList } from "actions/lists";
+import { updateBoard } from "actions/boards";
 import { deleteCard } from "actions/cards";
 
 const Board = props => {
   const id = props.match.params.id;
+  const board = props.boards[id];
+  const { name, editing } = board;
 
-  const handleNameClick = id => {
-    props.updateList(id, true);
+  const handleNameClick = () => {
+    props.updateBoard(id, name, true);
   };
 
   const handleDeleteList = listId => {
@@ -45,12 +48,15 @@ const Board = props => {
 
   return (
     <div className="board">
+      <div id="clickCatcher" />
       <div className="board__header">
         <Editable
           className="board__header__board-name"
+          id={id}
           onClick={handleNameClick}
-          onEdit={props.updateList}
-          content="tasks"
+          editing={editing}
+          onEdit={props.updateBoard}
+          content={name}
         />
       </div>
       <div className="board__content">
@@ -80,5 +86,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateList, createList, deleteList, deleteCard }
+  { updateList, createList, deleteList, deleteCard, updateBoard }
 )(Board);

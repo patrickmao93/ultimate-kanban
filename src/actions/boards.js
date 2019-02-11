@@ -11,3 +11,14 @@ export const attachToBoard = (boardId, listId) => {
     }
   };
 };
+
+export const updateBoard = (boardId, name, editing = false) => {
+  return {
+    type: actionTypes.UPDATE_BOARD,
+    payload: {
+      boardId,
+      name,
+      editing
+    }
+  };
+};

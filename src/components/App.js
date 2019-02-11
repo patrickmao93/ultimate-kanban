@@ -12,7 +12,6 @@ const App = props => {
   return (
     <div className="app">
       <AppBar />
-      <div id="clickCatcher" />
       <HashRouter>
         <Switch>
           <Route exact path="/" component={Boards} />

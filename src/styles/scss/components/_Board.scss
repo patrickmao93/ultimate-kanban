@@ -4,14 +4,12 @@
   border-radius: 10px;
 
   &__header {
+    pointer-events: all;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 8px;
 
     &__board-name {
-      display: inline-block;
-      vertical-align: center;
-      height: 32px;
       color: $color-secondary-light;
       font-weight: bold;
     }
@@ -30,7 +28,7 @@
         &__button {
           width: 100%;
           background: rgba(0, 0, 0, 0.1);
-          border-radius: 6px;
+          border-radius: 3px;
           padding: 15px;
           border: none;
           color: white;

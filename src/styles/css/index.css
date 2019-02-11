@@ -125,6 +125,28 @@ body {
   border: none !important;
 }
 
+.editable {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 6px;
+  border-radius: 3px;
+  background: none;
+  border: 2px solid transparent;
+}
+.editable:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.editable--editing {
+  color: black !important;
+  cursor: auto;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+}
+.editable--editing:hover {
+  background: #ffffff;
+}
+
 .app {
   height: 100vh;
   background: #038387;
@@ -133,13 +155,14 @@ body {
 .app-bar {
   display: flex;
   align-items: center;
-  padding: 6px;
+  padding: 4px;
   background: #006e74;
 }
 .app-bar__boards-button {
-  background: #4fb3b7 !important;
+  background: #3d9296 !important;
   padding: 8px 10px !important;
   font-size: 16px !important;
+  border-radius: 3px !important;
 }
 .app-bar__boards-button:hover {
   background: #038387 !important;
@@ -151,14 +174,12 @@ body {
   border-radius: 10px;
 }
 .board__header {
+  pointer-events: all;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 8px;
 }
 .board__header__board-name {
-  display: inline-block;
-  vertical-align: center;
-  height: 32px;
   color: #ffffff;
   font-weight: bold;
 }
@@ -177,7 +198,7 @@ body {
 .board__content__add .add-list__button {
   width: 100%;
   background: rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
+  border-radius: 3px;
   padding: 15px;
   border: none;
   color: white;
@@ -216,7 +237,7 @@ body {
   opacity: 0.3;
   display: none;
   background: #f2f4f5;
-  border-radius: 4px;
+  border-radius: 3px;
   border: 2px solid #038387;
   z-index: 1000;
 }
@@ -318,28 +339,6 @@ body {
   width: 280px;
   position: absolute;
   padding: 8px;
-}
-
-.editable {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 6px;
-  border-radius: 4px;
-  background: none;
-  border: 2px solid transparent;
-  width: 90%;
-}
-.editable:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-.editable--editing {
-  cursor: auto;
-  background: #ffffff;
-  border: 2px solid #4fb3b7;
-}
-.editable--editing:hover {
-  background: #ffffff;
 }
 
 /*# sourceMappingURL=index.css.map */

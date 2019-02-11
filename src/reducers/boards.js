@@ -33,8 +33,17 @@ export default (state = defaultState, action) => {
       return newState;
     }
 
+    case actionTypes.UPDATE_BOARD: {
+      const { boardId, name, editing } = action.payload;
+      const newState = Object.assign({}, state);
+      if (newState[boardId]) {
+        newState[boardId].name = name;
+        newState[boardId].editing = editing;
+      }
+      return newState;
+    }
+
     default:
-      break;
+      return state;
   }
-  return state;
 };
