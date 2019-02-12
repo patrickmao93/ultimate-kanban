@@ -1,0 +1,35 @@
+.create-board-modal {
+  margin-top: 80px;
+  border-radius: 3px;
+
+  &__editor {
+    margin: 8px 8px 0 8px;
+  }
+
+  .editor__input {
+    padding: 10px;
+    border-radius: 3px;
+    background: $color-primary-light;
+    padding-bottom: 60px;
+
+    input {
+      font-size: 1.2rem !important;
+      color: white !important;
+      border-radius: 3px !important;
+      padding: 6px 8px !important;
+      font-weight: bold !important;
+      border: none !important;
+      background: transparent !important;
+      margin-right: 45px !important;
+
+      &:focus {
+        background: rgba($color: #fff, $alpha: 0.4) !important;
+      }
+
+      &::placeholder,
+      &::placeholder:focus {
+        color: rgba($color: #fff, $alpha: 0.5);
+      }
+    }
+  }
+}

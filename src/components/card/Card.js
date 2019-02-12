@@ -1,6 +1,6 @@
 import React from "react";
 import { DragSource } from "react-dnd";
-import { Icon, Label } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 
 import * as ItemTypes from "constants/ItemTypes";
 import CardEditor from "./CardEditor";

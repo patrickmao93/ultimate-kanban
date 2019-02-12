@@ -56,3 +56,12 @@ export const pinBoardDrawer = pinned => {
     }
   };
 };
+
+export const toggleCreateBoardModal = open => {
+  return {
+    type: actionTypes.UI_CREATE_BOARD_MODAL,
+    payload: {
+      open
+    }
+  };
+};

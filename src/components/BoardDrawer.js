@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import BoardCard from "./BoardCard";
 import LinkButton from "./ui/LinkButton";
 import ClickCatcher from "./ui/ClickCatcher";
-import { pinBoardDrawer } from "actions/ui";
+import { pinBoardDrawer, toggleCreateBoardModal } from "actions/ui";
 
 class BoardDrawer extends React.Component {
   renderBoards = () => {
@@ -19,7 +19,7 @@ class BoardDrawer extends React.Component {
     ));
   };
 
-  renderButtons = () => {
+  renderPinToggleButton = () => {
     const { pinned, pinBoardDrawer } = this.props;
     if (pinned) {
       return (
@@ -38,7 +38,7 @@ class BoardDrawer extends React.Component {
   };
 
   render() {
-    const { pinned } = this.props;
+    const { pinned, toggleCreateBoardModal } = this.props;
     const className = pinned ? "board-drawer--pinned" : "";
 
     return ReactDOM.createPortal(
@@ -47,19 +47,22 @@ class BoardDrawer extends React.Component {
           <span>Boards</span>
         </div>
         <div className="board-drawer__content">
-          <Input
-            className="board-drawer__content__search"
-            fluid
-            placeholder="Find boards by name..."
-          />
+          <div className="board-drawer__content__search">
+            <Input fluid placeholder="Find boards by name..." />
+          </div>
           <div className="board-drawer__content__boards">
             {this.renderBoards()}
           </div>
           <div className="board-drawer__content__buttons">
-            {this.renderButtons()}
+            <LinkButton
+              content="Create new board..."
+              onClick={() => toggleCreateBoardModal(true)}
+            />
+            {this.renderPinToggleButton()}
           </div>
         </div>
         {pinned || <ClickCatcher onDismiss={this.props.onDismiss} />}
+        {}
       </div>,
       document.getElementById("drawer")
     );
@@ -75,5 +78,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { pinBoardDrawer }
+  { pinBoardDrawer, toggleCreateBoardModal }
 )(BoardDrawer);

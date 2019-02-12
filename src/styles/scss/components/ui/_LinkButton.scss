@@ -3,8 +3,9 @@
   padding: 8px 12px;
   overflow: hidden;
   border-radius: 3px;
+  text-decoration: underline;
   &:hover {
     background: #dfe4e7;
-    text-decoration: underline;
+    color: $color-primary-light;
   }
 }

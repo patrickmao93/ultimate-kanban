@@ -21,6 +21,16 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case actionTypes.CREATE_BOARD: {
+      const { boardId } = action.payload;
+      const newState = Object.assign({}, state);
+      if (!newState[boardId]) {
+        newState._boards.push(boardId);
+        newState[boardId] = action.payload;
+      }
+      return newState;
+    }
+
     case actionTypes.DELETE_LIST: {
       const { boardId, listId } = action.payload;
       const newState = Object.assign({}, state);

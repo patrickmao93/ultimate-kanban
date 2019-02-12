@@ -75,7 +75,7 @@ class Editor extends React.Component {
     const { placeholder } = this.props;
 
     return (
-      <div className={`editor__input`}>
+      <div className="editor__input">
         {React.cloneElement(child, {
           placeholder,
           value: this.state.content,

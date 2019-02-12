@@ -12,30 +12,32 @@ const defaultState = {
   boardDrawer: {
     open: false,
     pinned: false
+  },
+  createBoardModal: {
+    open: false
   }
 };
 
 export default (state = defaultState, action) => {
+  const copyAndUpdate = element => {
+    return { ...state, [element]: { ...state[element], ...action.payload } };
+  };
+
   switch (action.type) {
     case actionTypes.UI_ADD_LIST_EDITOR: {
-      const addListEditor = {
-        ...state.addListEditor,
-        ...action.payload
-      };
-      return { ...state, addListEditor };
+      return copyAndUpdate("addListEditor");
     }
 
     case actionTypes.UI_ADD_CARD_EDITOR: {
-      const addCardEditor = {
-        ...state.addCardEditor,
-        ...action.payload
-      };
-      return { ...state, addCardEditor };
+      return copyAndUpdate("addCardEditor");
     }
 
     case actionTypes.UI_BOARD_DRAWER: {
-      const boardDrawer = { ...state.boardDrawer, ...action.payload };
-      return { ...state, boardDrawer };
+      return copyAndUpdate("boardDrawer");
+    }
+
+    case actionTypes.UI_CREATE_BOARD_MODAL: {
+      return copyAndUpdate("createBoardModal");
     }
 
     default:
