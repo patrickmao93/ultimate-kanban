@@ -53,7 +53,6 @@ class Board extends React.Component {
 
     return (
       <div className="board">
-        <div id="clickCatcher" />
         <div className="board__header">
           <Editable
             className="board__header__board-name"

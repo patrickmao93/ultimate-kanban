@@ -41,14 +41,13 @@ a:hover {
   z-index: 1000;
 }
 
-#clickCatcher {
-  pointer-events: all;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
 .click-catcher {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   width: 100%;
   height: 100%;
 }
@@ -182,10 +181,12 @@ a:hover {
   background: rgba(0, 0, 0, 0.15);
 }
 .app-bar__boards-button {
+  position: relative;
   background: #3d9296 !important;
   padding: 8px 10px !important;
   font-size: 16px !important;
   border-radius: 3px !important;
+  z-index: 10;
 }
 .app-bar__boards-button:hover {
   background: #038387 !important;
@@ -194,6 +195,10 @@ a:hover {
 .board {
   position: relative;
   border-radius: 10px;
+  height: calc(100% - 42px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .board__header {
   pointer-events: all;
@@ -205,11 +210,16 @@ a:hover {
 .board__header__board-name {
   color: #ffffff;
   font-weight: bold;
+  position: relative;
+  z-index: 10;
 }
 .board__content {
   display: flex;
   align-items: flex-start;
   padding: 0 8px;
+  width: 100%;
+  flex: 1;
+  overflow-x: scroll;
 }
 .board__content__add {
   min-width: 280px;
@@ -248,6 +258,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   background: #eceff1;
+  z-index: 10;
 }
 .list:hover .list__header__close {
   opacity: 1;

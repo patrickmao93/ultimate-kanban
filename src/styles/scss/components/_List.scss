@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   background: $color-secondary;
+  z-index: 10;
 
   &:hover {
     .list__header__close {

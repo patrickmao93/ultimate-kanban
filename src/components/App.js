@@ -11,6 +11,7 @@ const App = props => {
   const className = props.pinned ? "app app--drawer-pinned" : "app";
   return (
     <div className={className}>
+      <div id="clickCatcher" />
       <AppBar />
       <Content />
     </div>

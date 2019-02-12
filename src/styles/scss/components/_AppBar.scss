@@ -5,10 +5,12 @@
   height: 42px;
   background: rgba($color: #000000, $alpha: 0.15);
   &__boards-button {
+    position: relative;
     background: $color-primary-light !important;
     padding: 8px 10px !important;
     font-size: 16px !important;
     border-radius: 3px !important;
+    z-index: 10;
 
     &:hover {
       background: $color-primary !important;
