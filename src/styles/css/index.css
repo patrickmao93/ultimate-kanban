@@ -178,6 +178,7 @@ a:hover {
   display: flex;
   align-items: center;
   padding: 4px;
+  height: 42px;
   background: rgba(0, 0, 0, 0.15);
 }
 .app-bar__boards-button {

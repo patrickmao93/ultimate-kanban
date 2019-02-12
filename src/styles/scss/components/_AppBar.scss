@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 4px;
+  height: 42px;
   background: rgba($color: #000000, $alpha: 0.15);
   &__boards-button {
     background: $color-primary-light !important;

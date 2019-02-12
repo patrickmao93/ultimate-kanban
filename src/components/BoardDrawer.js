@@ -59,7 +59,7 @@ class BoardDrawer extends React.Component {
             {this.renderButtons()}
           </div>
         </div>
-        <ClickCatcher onDismiss={this.props.onDismiss} />
+        {pinned || <ClickCatcher onDismiss={this.props.onDismiss} />}
       </div>,
       document.getElementById("drawer")
     );

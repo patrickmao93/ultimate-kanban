@@ -13,6 +13,20 @@ const AppBar = props => {
     props.toggleBoardDrawer(true);
   };
 
+  const renderDrawerButton = () => {
+    const { pinned } = props.boardDrawer;
+    return !pinned ? (
+      <Button
+        className="app-bar__boards-button"
+        primary
+        onClick={handleDrawerClick}
+      >
+        <Icon name="square" />
+        Boards
+      </Button>
+    ) : null;
+  };
+
   const renderDrawer = () => {
     const { pinned, open } = props.boardDrawer;
     if (pinned) {
@@ -30,14 +44,7 @@ const AppBar = props => {
 
   return (
     <header className="app-bar">
-      <Button
-        className="app-bar__boards-button"
-        primary
-        onClick={handleDrawerClick}
-      >
-        <Icon name="square" />
-        Boards
-      </Button>
+      {renderDrawerButton()}
       <div className="app-bar__logo" />
       {renderDrawer()}
     </header>
