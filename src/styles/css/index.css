@@ -343,4 +343,48 @@ body {
   padding: 8px;
 }
 
+#drawer {
+  position: relative;
+  z-index: 60;
+}
+
+.board-drawer {
+  color: black;
+  position: fixed;
+  background: #ffffff;
+  border-radius: 0 3px 3px 0;
+  top: 44px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px -6px rgba(9, 45, 66, 0.25), 0 0 0 1px rgba(9, 45, 66, 0.08);
+}
+.board-drawer__content {
+  margin: 8px;
+}
+.board-drawer__content__search {
+  margin-bottom: 10px;
+}
+
+.board-card {
+  cursor: pointer;
+  background: rgba(61, 146, 150, 0.2);
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.board-card:hover {
+  background: rgba(61, 146, 150, 0.3);
+}
+.board-card__thumbnail {
+  height: 36px;
+  width: 36px;
+  background: rgba(61, 146, 150, 0.4);
+}
+.board-card__name {
+  padding: 8px;
+}
+
 /*# sourceMappingURL=index.css.map */

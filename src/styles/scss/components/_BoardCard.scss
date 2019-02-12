@@ -1,0 +1,24 @@
+.board-card {
+  cursor: pointer;
+  background: rgba($color-primary-light, 0.2);
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba($color-primary-light, 0.3);
+  }
+
+  &__thumbnail {
+    height: 36px;
+    width: 36px;
+    background: rgba($color-primary-light, 0.4);
+  }
+
+  &__name {
+    padding: 8px;
+  }
+}

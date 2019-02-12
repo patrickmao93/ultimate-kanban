@@ -1,0 +1,24 @@
+#drawer {
+  position: relative;
+  z-index: 60;
+}
+
+.board-drawer {
+  color: black;
+  position: fixed;
+  background: $color-secondary-light;
+  border-radius: 0 3px 3px 0;
+  top: 44px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px -6px rgba(9, 45, 66, 0.25),
+    0 0 0 1px rgba(9, 45, 66, 0.08);
+
+  &__content {
+    margin: 8px;
+
+    &__search {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Icon } from "semantic-ui-react";
 
+import BoardDrawer from "./BoardDrawer";
+
 const AppBar = props => {
   return (
     <header className="app-bar">
@@ -9,6 +11,7 @@ const AppBar = props => {
         Boards
       </Button>
       <div className="app-bar__logo" />
+      <BoardDrawer />
     </header>
   );
 };

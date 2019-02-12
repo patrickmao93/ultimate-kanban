@@ -9,7 +9,8 @@ const defaultState = {
     name: "tasks",
     listIds: [id0, id1, id2],
     editing: false
-  }
+  },
+  _boards: [0]
 };
 
 export default (state = defaultState, action) => {
