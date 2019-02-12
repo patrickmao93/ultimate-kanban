@@ -14,6 +14,16 @@
   box-shadow: 0 12px 24px -6px rgba(9, 45, 66, 0.25),
     0 0 0 1px rgba(9, 45, 66, 0.08);
 
+  &__header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: $color-secondary;
+    padding: 8px 12px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+
   &__content {
     margin: 8px;
 
