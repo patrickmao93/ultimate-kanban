@@ -64,10 +64,10 @@ class Editable extends React.Component {
     );
   };
 
-  componentDidUpdate() {
-    if (this.inputRef.current) {
-      this.inputRef.current.select();
-    }
+  componentDidMount() {
+    // if (this.inputRef.current) {
+    //   this.inputRef.current.select();
+    // }
   }
 
   render() {

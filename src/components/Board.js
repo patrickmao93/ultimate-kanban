@@ -9,74 +9,84 @@ import { updateList, createList, deleteList } from "actions/lists";
 import { updateBoard } from "actions/boards";
 import { deleteCard } from "actions/cards";
 
-const Board = props => {
-  const id = props.match.params.id;
-  const board = props.boards[id];
-  const { name, editing } = board;
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    const id = this.props.match.params.id;
+    const board = this.props.boards[id];
+    this.state = { id, name: board.name, editing: board.editing };
+  }
 
-  const handleNameClick = () => {
-    props.updateBoard(id, name, true);
+  handleNameClick = () => {
+    const id = this.props.match.params.id;
+    const board = this.props.boards[id];
+    this.props.updateBoard(this.id, board.name, true);
   };
 
-  const handleDeleteList = listId => {
-    const list = props.lists[listId];
-    list.cardIds.forEach(cardId => props.deleteCard(cardId));
-    props.deleteList(id, listId);
+  handleDeleteList = listId => {
+    const id = this.props.match.params.id;
+    const list = this.props.lists[listId];
+    list.cardIds.forEach(cardId => this.props.deleteCard(cardId));
+    this.props.deleteList(id, listId);
   };
 
-  const renderLists = () => {
-    const { boards, lists } = props;
+  renderLists = () => {
+    const id = this.props.match.params.id;
+    const { boards, lists } = this.props;
     return boards[id].listIds.map(listId => {
       const list = lists[listId];
       return (
         <List
           key={list.id}
           {...list}
-          onDelete={() => handleDeleteList(list.id)}
+          onDelete={() => this.handleDeleteList(list.id)}
         >
           <Editable
             id={list.id}
             content={list.name}
             editing={list.editing}
-            onClick={() => props.updateList(list.id, list.name, true)}
-            onEdit={props.updateList}
+            onClick={() => this.props.updateList(list.id, list.name, true)}
+            onEdit={this.props.updateList}
           />
         </List>
       );
     });
   };
 
-  return (
-    <div className="board">
-      <div id="clickCatcher" />
-      <div className="board__header">
-        <Editable
-          className="board__header__board-name"
-          id={id}
-          onClick={handleNameClick}
-          editing={editing}
-          onEdit={props.updateBoard}
-          content={name}
-        />
-      </div>
-      <div className="board__content">
-        {renderLists()}
-        <div className="board__content__add">
-          <AddListButton
-            open={
-              props.addListEditor.open && id === props.addListEditor.boardId
-            }
-            boardId={id}
+  render() {
+    const id = this.props.match.params.id;
+    const board = this.props.boards[id];
+    const { name, editing } = board;
+
+    return (
+      <div className="board">
+        <div id="clickCatcher" />
+        <div className="board__header">
+          <Editable
+            className="board__header__board-name"
+            id={id}
+            onClick={this.handleNameClick}
+            editing={editing}
+            onEdit={this.props.updateBoard}
+            content={name}
           />
         </div>
+        <div className="board__content">
+          {this.renderLists()}
+          <div className="board__content__add">
+            <AddListButton
+              open={
+                this.props.addListEditor.open &&
+                id === this.props.addListEditor.boardId
+              }
+              boardId={id}
+            />
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
-
-Board.propTypes = {
-  lists: PropTypes.object.isRequired
-};
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   boards: state.boards,

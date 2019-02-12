@@ -8,7 +8,15 @@ class Content extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={Boards} />
-        <Route exact path="/:id" component={Board} />
+        <Route
+          path="/:id"
+          exact
+          render={props => (
+            // key is set this way to ensure board is re-rendered
+            // every time the router param changes
+            <Board key={props.match.params.id} {...props} />
+          )}
+        />
       </Switch>
     );
   }
