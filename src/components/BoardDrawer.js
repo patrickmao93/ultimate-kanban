@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { Input } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 import BoardCard from "./BoardCard";
 import ClickCatcher from "./ui/ClickCatcher";
@@ -10,7 +11,9 @@ class BoardDrawer extends React.Component {
   renderBoards = () => {
     const { boardIds, boards } = this.props;
     return boardIds.map(boardId => (
-      <BoardCard key={boardId} {...boards[boardId]} />
+      <Link to={`/${boardId}`} key={boardId}>
+        <BoardCard {...boards[boardId]} onClick={this.props.onDismiss} />
+      </Link>
     ));
   };
 

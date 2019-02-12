@@ -10,7 +10,13 @@ const defaultState = {
     listIds: [id0, id1, id2],
     editing: false
   },
-  _boards: [0]
+  1: {
+    id: 1,
+    name: "something!",
+    listIds: [id0],
+    editing: false
+  },
+  _boards: [0, 1]
 };
 
 export default (state = defaultState, action) => {

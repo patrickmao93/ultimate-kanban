@@ -23,6 +23,13 @@ body {
   line-height: 1;
 }
 
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+
 .overlay {
   pointer-events: all;
   background: rgba(0, 0, 0, 0.6);
@@ -157,7 +164,7 @@ body {
   display: flex;
   align-items: center;
   padding: 4px;
-  background: #006e74;
+  background: rgba(0, 0, 0, 0.15);
 }
 .app-bar__boards-button {
   background: #3d9296 !important;
@@ -371,6 +378,7 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;
+  margin-bottom: 8px;
   align-items: center;
   overflow: hidden;
   border-radius: 3px;
@@ -381,7 +389,7 @@ body {
 .board-card__thumbnail {
   height: 36px;
   width: 36px;
-  background: rgba(61, 146, 150, 0.4);
+  background: rgba(61, 146, 150, 0.7);
 }
 .board-card__name {
   padding: 8px;

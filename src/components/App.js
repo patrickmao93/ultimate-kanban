@@ -1,23 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { HashRouter, Route, Switch } from "react-router-dom";
 import HTML5Backend from "react-dnd-html5-backend";
 import { DragDropContext } from "react-dnd";
+import { withRouter } from "react-router-dom";
 
 import AppBar from "components/AppBar";
-import Boards from "components/Boards";
-import Board from "components/Board";
+import Content from "components/Content";
 
 const App = props => {
   return (
     <div className="app">
       <AppBar />
-      <HashRouter>
-        <Switch>
-          <Route exact path="/" component={Boards} />
-          <Route exact path="/:id" component={Board} />
-        </Switch>
-      </HashRouter>
+      <Content />
     </div>
   );
 };
@@ -28,4 +22,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default DragDropContext(HTML5Backend)(connect(mapStateToProps)(App));
+export default withRouter(
+  DragDropContext(HTML5Backend)(connect(mapStateToProps)(App))
+);

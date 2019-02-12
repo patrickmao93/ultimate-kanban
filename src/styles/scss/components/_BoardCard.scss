@@ -4,6 +4,7 @@
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;
+  margin-bottom: 8px;
   align-items: center;
   overflow: hidden;
   border-radius: 3px;
@@ -15,7 +16,7 @@
   &__thumbnail {
     height: 36px;
     width: 36px;
-    background: rgba($color-primary-light, 0.4);
+    background: rgba($color-primary-light, 0.7);
   }
 
   &__name {
