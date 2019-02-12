@@ -4,11 +4,14 @@ import { connect } from "react-redux";
 import { Input } from "semantic-ui-react";
 
 import BoardCard from "./BoardCard";
+import ClickCatcher from "./ui/ClickCatcher";
 
 class BoardDrawer extends React.Component {
   renderBoards = () => {
     const { boardIds, boards } = this.props;
-    return boardIds.map(boardId => <BoardCard {...boards[boardId]} />);
+    return boardIds.map(boardId => (
+      <BoardCard key={boardId} {...boards[boardId]} />
+    ));
   };
 
   render() {
@@ -24,6 +27,7 @@ class BoardDrawer extends React.Component {
             {this.renderBoards()}
           </div>
         </div>
+        <ClickCatcher onDismiss={this.props.onDismiss} />
       </div>,
       document.getElementById("drawer")
     );

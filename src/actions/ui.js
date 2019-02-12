@@ -38,3 +38,12 @@ export const closeAddCardEditor = () => {
     }
   };
 };
+
+export const toggleBoardDrawer = open => {
+  return {
+    type: actionTypes.UI_BOARD_DRAWER,
+    payload: {
+      open
+    }
+  };
+};

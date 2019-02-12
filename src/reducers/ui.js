@@ -8,6 +8,9 @@ const defaultState = {
   addCardEditor: {
     listId: null,
     open: false
+  },
+  boardDrawer: {
+    open: false
   }
 };
 
@@ -27,6 +30,11 @@ export default (state = defaultState, action) => {
         ...action.payload
       };
       return { ...state, addCardEditor };
+    }
+
+    case actionTypes.UI_BOARD_DRAWER: {
+      const boardDrawer = { ...state.boardDrawer, ...action.payload };
+      return { ...state, boardDrawer };
     }
 
     default:

@@ -20,3 +20,4 @@ export const DELETE_CARD = "DELETE_CARD";
 // UI actions
 export const UI_ADD_LIST_EDITOR = "UI_ADD_LIST_EDITOR";
 export const UI_ADD_CARD_EDITOR = "UI_ADD_CARD_EDITOR";
+export const UI_BOARD_DRAWER = "UI_BOARD_DRAWER";
