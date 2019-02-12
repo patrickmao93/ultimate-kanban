@@ -380,13 +380,16 @@ a:hover {
   box-shadow: 0 12px 24px -6px rgba(9, 45, 66, 0.25), 0 0 0 1px rgba(9, 45, 66, 0.08);
 }
 .board-drawer__header {
+  display: none;
   font-size: 1.2rem;
   font-weight: bold;
   background: #eceff1;
   padding: 8px 12px;
   height: 42px;
-  display: flex;
   align-items: center;
+}
+.board-drawer__header.board-drawer--pinned {
+  display: flex;
 }
 .board-drawer__content {
   margin: 8px;

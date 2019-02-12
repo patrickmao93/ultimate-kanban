@@ -39,13 +39,11 @@ class BoardDrawer extends React.Component {
 
   render() {
     const { pinned } = this.props;
-    const className = pinned
-      ? "board-drawer board-drawer--pinned"
-      : "board-drawer";
+    const className = pinned ? "board-drawer--pinned" : "";
 
     return ReactDOM.createPortal(
-      <div className={className}>
-        <div className="board-drawer__header">
+      <div className={`board-drawer ${className}`}>
+        <div className={`board-drawer__header ${className}`}>
           <span>Boards</span>
         </div>
         <div className="board-drawer__content">

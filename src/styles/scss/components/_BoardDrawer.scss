@@ -15,13 +15,17 @@
     0 0 0 1px rgba(9, 45, 66, 0.08);
 
   &__header {
+    display: none;
     font-size: 1.2rem;
     font-weight: bold;
     background: $color-secondary;
     padding: 8px 12px;
     height: 42px;
-    display: flex;
     align-items: center;
+
+    &.board-drawer--pinned {
+      display: flex;
+    }
   }
 
   &__content {
