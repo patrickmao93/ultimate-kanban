@@ -13,6 +13,21 @@ const AppBar = props => {
     props.toggleBoardDrawer(true);
   };
 
+  const renderDrawer = () => {
+    const { pinned, open } = props.boardDrawer;
+    if (pinned) {
+      return <BoardDrawer pinned={pinned} />;
+    }
+    if (open) {
+      return (
+        <BoardDrawer
+          pinned={pinned}
+          onDismiss={() => props.toggleBoardDrawer(false)}
+        />
+      );
+    }
+  };
+
   return (
     <header className="app-bar">
       <Button
@@ -24,9 +39,7 @@ const AppBar = props => {
         Boards
       </Button>
       <div className="app-bar__logo" />
-      {props.boardDrawer.open && (
-        <BoardDrawer onDismiss={() => props.toggleBoardDrawer(false)} />
-      )}
+      {renderDrawer()}
     </header>
   );
 };

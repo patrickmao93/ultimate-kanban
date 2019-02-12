@@ -17,8 +17,13 @@
   &__content {
     margin: 8px;
 
-    &__search {
+    &__search,
+    &__boards {
       margin-bottom: 10px;
     }
+  }
+  &--pinned {
+    top: 0px;
+    bottom: 0px;
   }
 }

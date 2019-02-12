@@ -1,4 +1,8 @@
 .app {
   height: 100vh;
   background: #038387;
+
+  &--drawer-pinned {
+    margin-left: 280px;
+  }
 }

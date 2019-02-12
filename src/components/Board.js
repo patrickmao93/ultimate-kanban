@@ -10,17 +10,10 @@ import { updateBoard } from "actions/boards";
 import { deleteCard } from "actions/cards";
 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    const id = this.props.match.params.id;
-    const board = this.props.boards[id];
-    this.state = { id, name: board.name, editing: board.editing };
-  }
-
   handleNameClick = () => {
     const id = this.props.match.params.id;
-    const board = this.props.boards[id];
-    this.props.updateBoard(this.id, board.name, true);
+    const name = this.props.boards[id].name;
+    this.props.updateBoard(id, name, true);
   };
 
   handleDeleteList = listId => {

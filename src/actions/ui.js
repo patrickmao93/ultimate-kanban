@@ -47,3 +47,12 @@ export const toggleBoardDrawer = open => {
     }
   };
 };
+
+export const pinBoardDrawer = pinned => {
+  return {
+    type: actionTypes.UI_BOARD_DRAWER,
+    payload: {
+      pinned
+    }
+  };
+};

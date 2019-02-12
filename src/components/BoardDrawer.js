@@ -5,7 +5,9 @@ import { Input } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 import BoardCard from "./BoardCard";
+import LinkButton from "./ui/LinkButton";
 import ClickCatcher from "./ui/ClickCatcher";
+import { pinBoardDrawer } from "actions/ui";
 
 class BoardDrawer extends React.Component {
   renderBoards = () => {
@@ -17,9 +19,31 @@ class BoardDrawer extends React.Component {
     ));
   };
 
+  renderButtons = () => {
+    const { pinned, pinBoardDrawer } = this.props;
+    if (pinned) {
+      return (
+        <LinkButton
+          content="Don't keep this menu open"
+          onClick={() => pinBoardDrawer(!pinned)}
+        />
+      );
+    }
+    return (
+      <LinkButton
+        content="Always keep this menu open"
+        onClick={() => pinBoardDrawer(!pinned)}
+      />
+    );
+  };
+
   render() {
+    const { pinned } = this.props;
+    const className = pinned
+      ? "board-drawer"
+      : "board-drawer board-drawer--pinned";
     return ReactDOM.createPortal(
-      <div className="board-drawer">
+      <div className={className}>
         <div className="board-drawer__content">
           <Input
             className="board-drawer__content__search"
@@ -28,6 +52,9 @@ class BoardDrawer extends React.Component {
           />
           <div className="board-drawer__content__boards">
             {this.renderBoards()}
+          </div>
+          <div className="board-drawer__content__buttons">
+            {this.renderButtons()}
           </div>
         </div>
         <ClickCatcher onDismiss={this.props.onDismiss} />
@@ -44,4 +71,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(BoardDrawer);
+export default connect(
+  mapStateToProps,
+  { pinBoardDrawer }
+)(BoardDrawer);

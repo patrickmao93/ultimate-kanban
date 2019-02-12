@@ -10,7 +10,8 @@ const defaultState = {
     open: false
   },
   boardDrawer: {
-    open: false
+    open: false,
+    pinned: false
   }
 };
 

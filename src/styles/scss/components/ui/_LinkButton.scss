@@ -1,0 +1,10 @@
+.link-button {
+  cursor: pointer;
+  padding: 8px 12px;
+  overflow: hidden;
+  border-radius: 3px;
+  &:hover {
+    background: #dfe4e7;
+    text-decoration: underline;
+  }
+}

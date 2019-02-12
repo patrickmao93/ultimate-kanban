@@ -155,9 +155,23 @@ a:hover {
   background: #ffffff;
 }
 
+.link-button {
+  cursor: pointer;
+  padding: 6px 12px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.link-button:hover {
+  background: #dfe4e7;
+  text-decoration: underline;
+}
+
 .app {
   height: 100vh;
   background: #038387;
+}
+.app--drawer-pinned {
+  margin-left: 280px;
 }
 
 .app-bar {
@@ -368,15 +382,19 @@ a:hover {
 .board-drawer__content {
   margin: 8px;
 }
-.board-drawer__content__search {
+.board-drawer__content__search, .board-drawer__content__boards {
   margin-bottom: 10px;
+}
+.board-drawer--pinned {
+  top: 0px;
+  bottom: 0px;
 }
 
 .board-card {
   cursor: pointer;
   background: rgba(61, 146, 150, 0.2);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: flex;
   margin-bottom: 8px;
   align-items: center;

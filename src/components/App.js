@@ -8,8 +8,9 @@ import AppBar from "components/AppBar";
 import Content from "components/Content";
 
 const App = props => {
+  const className = props.pinned ? "app app--drawer-pinned" : "app";
   return (
-    <div className="app">
+    <div className={className}>
       <AppBar />
       <Content />
     </div>
@@ -18,7 +19,8 @@ const App = props => {
 
 const mapStateToProps = state => {
   return {
-    boards: state.boards
+    boards: state.boards,
+    pinned: state.ui.boardDrawer.pinned
   };
 };
 
