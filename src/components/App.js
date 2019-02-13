@@ -11,28 +11,31 @@ import Overlay from "./ui/Overlay";
 import { toggleCreateBoardModal } from "./../actions/ui";
 import { createBoard } from "./../actions/boards";
 
-const App = props => {
-  const className = props.pinned ? "app app--drawer-pinned" : "app";
-
-  const handleCreateBoard = content => {
-    props.createBoard(content);
-    props.toggleCreateBoardModal(false);
+class App extends React.Component {
+  handleCreateBoard = content => {
+    const { payload } = this.props.createBoard(content);
+    this.props.toggleCreateBoardModal(false);
+    this.props.history.push(`/${payload.boardId}`);
   };
 
-  const createBoardModal = (
-    <Overlay onDismiss={() => props.toggleCreateBoardModal(false)}>
-      <CreateBoardModal onSubmit={handleCreateBoard} />
+  createBoardModal = (
+    <Overlay onDismiss={() => this.props.toggleCreateBoardModal(false)}>
+      <CreateBoardModal onSubmit={this.handleCreateBoard} />
     </Overlay>
   );
-  return (
-    <div className={className}>
-      <div id="clickCatcher" />
-      <AppBar />
-      <Content />
-      {props.createBoardModal.open && createBoardModal}
-    </div>
-  );
-};
+
+  render() {
+    const className = this.props.pinned ? "app app--drawer-pinned" : "app";
+    return (
+      <div className={className}>
+        <div id="clickCatcher" />
+        <AppBar />
+        <Content />
+        {this.props.createBoardModal.open && this.createBoardModal}
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {

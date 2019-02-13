@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import List from "components/List";
@@ -49,6 +50,9 @@ class Board extends React.Component {
   render() {
     const id = this.props.match.params.id;
     const board = this.props.boards[id];
+    if (!board) {
+      return <Redirect to="/" />;
+    }
     const { name, editing } = board;
 
     return (
