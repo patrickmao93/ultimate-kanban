@@ -1,11 +1,14 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { Form, Ref } from "semantic-ui-react";
-
-import ClickCatcher from "./ClickCatcher";
+// import { Input, TextArea, Button, Form, Ref } from "semantic-ui-react";
+// When produce minified build "child.type.name" doesn't work, plus I don't
+// have access to the semantic components so I wrapped them in my component
 import Button from "./form/Button";
 import Input from "./form/Input";
 import TextArea from "./form/TextArea";
+
+import ClickCatcher from "./ClickCatcher";
 
 class Editor extends React.Component {
   state = {
