@@ -85,7 +85,7 @@ class Board extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  boards: state.boards,
+  boards: state.boards.boards,
   lists: state.lists,
   addListEditor: state.ui.addListEditor
 });
