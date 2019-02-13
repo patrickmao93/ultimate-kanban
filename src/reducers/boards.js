@@ -33,12 +33,12 @@ export default (state = defaultState, action) => {
 
     case actionTypes.DELETE_LIST: {
       const { boardId, listId } = action.payload;
-      const newState = Object.assign({}, state);
-      if (newState.boards[boardId]) {
-        const index = newState.boards[boardId].listIds.indexOf(listId);
-        newState.boards[boardId].listIds.splice(index, 1);
+      const newBoards = Object.assign({}, state.boards);
+      if (newBoards[boardId]) {
+        const index = newBoards[boardId].listIds.indexOf(listId);
+        newBoards[boardId].listIds.splice(index, 1);
       }
-      return newState;
+      return { ...state, boards: newBoards };
     }
 
     case actionTypes.ATTACH_TO_BOARD: {

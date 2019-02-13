@@ -11,23 +11,22 @@ import { updateBoard } from "actions/boards";
 import { deleteCard } from "actions/cards";
 
 class Board extends React.Component {
+  boardId = this.props.match.params.id;
+
   handleNameClick = () => {
-    const id = this.props.match.params.id;
-    const name = this.props.boards[id].name;
-    this.props.updateBoard(id, name, true);
+    const name = this.props.boards[this.boardId].name;
+    this.props.updateBoard(this.boardId, name, true);
   };
 
   handleDeleteList = listId => {
-    const id = this.props.match.params.id;
     const list = this.props.lists[listId];
-    list.cardIds.forEach(cardId => this.props.deleteCard(cardId));
-    this.props.deleteList(id, listId);
+    list.cardIds.forEach(cardId => this.props.deleteCard(listId, cardId));
+    this.props.deleteList(this.boardId, listId);
   };
 
   renderLists = () => {
-    const id = this.props.match.params.id;
     const { boards, lists } = this.props;
-    return boards[id].listIds.map(listId => {
+    return boards[this.boardId].listIds.map(listId => {
       const list = lists[listId];
       return (
         <List
@@ -48,8 +47,7 @@ class Board extends React.Component {
   };
 
   render() {
-    const id = this.props.match.params.id;
-    const board = this.props.boards[id];
+    const board = this.props.boards[this.boardId];
     if (!board) {
       return <Redirect to="/" />;
     }
@@ -60,7 +58,7 @@ class Board extends React.Component {
         <div className="board__header">
           <Editable
             className="board__header__board-name"
-            id={id}
+            id={this.boardId}
             onClick={this.handleNameClick}
             editing={editing}
             onEdit={this.props.updateBoard}
@@ -73,9 +71,9 @@ class Board extends React.Component {
             <AddListButton
               open={
                 this.props.addListEditor.open &&
-                id === this.props.addListEditor.boardId
+                this.boardId === this.props.addListEditor.boardId
               }
-              boardId={id}
+              boardId={this.boardId}
             />
           </div>
         </div>
