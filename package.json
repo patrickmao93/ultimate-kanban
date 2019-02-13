@@ -1,5 +1,6 @@
 {
   "name": "ultimate-kanban",
+  "homepage": "http://patrickmao93.github.io/ultimate-kanban",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +24,9 @@
     "sass": "sass --watch src/styles/scss:src/styles/css",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +40,7 @@
   "devDependencies": {
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "gh-pages": "^2.0.1",
     "redux-devtools-extension": "^2.13.7"
   }
 }

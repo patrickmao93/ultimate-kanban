@@ -1,8 +1,11 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import { Input, TextArea, Button, Form, Ref } from "semantic-ui-react";
+import { Form, Ref } from "semantic-ui-react";
 
 import ClickCatcher from "./ClickCatcher";
+import Button from "./form/Button";
+import Input from "./form/Input";
+import TextArea from "./form/TextArea";
 
 class Editor extends React.Component {
   state = {
@@ -81,7 +84,7 @@ class Editor extends React.Component {
           value: this.state.content,
           onChange: this.handleInputChange,
           onKeyDown: this.handleKeyDown,
-          ref: this.inputRef
+          forwardref: this.inputRef
         })}
         {this.renderCount()}
       </div>
@@ -135,13 +138,13 @@ class Editor extends React.Component {
   renderChildren = () => {
     const { children } = this.props;
     return React.Children.map(children, child => {
-      const name = child.type.name;
+      const name = child.type.displayName;
       switch (name) {
-        case "Input":
+        case "input":
           return this.renderInput(child);
-        case "TextArea":
+        case "textarea":
           return this.renderTextArea(child);
-        case "Button":
+        case "button":
           return this.renderButton(child);
         default:
           return child;
@@ -163,7 +166,7 @@ class Editor extends React.Component {
     return (
       <Ref innerRef={this.editorRef}>
         <Form
-          className={`editor ${className}`}
+          className={`editor ${className || ""}`}
           onSubmit={this.handleSubmit}
           onClick={this.handleClick}
         >

@@ -11,7 +11,11 @@ const store = createStore(reducers, persistedState, composeWithDevTools());
 store.subscribe(
   throttle(() => {
     const { boards, lists, cards } = store.getState();
-    saveState({ boards, lists, cards });
+    saveState({
+      boards,
+      lists,
+      cards
+    });
   }, 1000)
 );
 
