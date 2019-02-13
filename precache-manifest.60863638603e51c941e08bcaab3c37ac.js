@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "a29b9b57ea9ed2e65b1e",
+    "revision": "a07236bd7ebbbd6e5a91",
     "url": "/ultimate-kanban/static/css/main.c894e17f.chunk.css"
   },
   {
@@ -20,16 +20,12 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/js/runtime~main.e02d5132.js"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/ultimate-kanban/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/ultimate-kanban/static/media/outline-icons.ef60a4f6.woff"
   },
   {
-    "revision": "9c74e172f87984c48ddf5c8108cabe67",
-    "url": "/ultimate-kanban/static/media/flags.9c74e172.png"
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/ultimate-kanban/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
@@ -40,12 +36,16 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/outline-icons.ad97afd3.ttf"
   },
   {
+    "revision": "9c74e172f87984c48ddf5c8108cabe67",
+    "url": "/ultimate-kanban/static/media/flags.9c74e172.png"
+  },
+  {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
     "url": "/ultimate-kanban/static/media/icons.0ab54153.woff2"
   },
   {
-    "revision": "a29b9b57ea9ed2e65b1e",
-    "url": "/ultimate-kanban/static/js/main.a29b9b57.chunk.js"
+    "revision": "a07236bd7ebbbd6e5a91",
+    "url": "/ultimate-kanban/static/js/main.a07236bd.chunk.js"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/css/1.6ebcd6e5.chunk.css"
   },
   {
-    "revision": "6d29e8a95390530b8780dd77ef039b3e",
+    "revision": "8ac9bd77ac86063447d03050c5424369",
     "url": "/ultimate-kanban/index.html"
   }
 ];
