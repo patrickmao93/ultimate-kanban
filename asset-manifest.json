@@ -1,16 +1,16 @@
 {
   "main.css": "/ultimate-kanban/static/css/main.c894e17f.chunk.css",
-  "main.js": "/ultimate-kanban/static/js/main.c757856f.chunk.js",
-  "main.js.map": "/ultimate-kanban/static/js/main.c757856f.chunk.js.map",
+  "main.js": "/ultimate-kanban/static/js/main.7d1294df.chunk.js",
+  "main.js.map": "/ultimate-kanban/static/js/main.7d1294df.chunk.js.map",
   "static/css/1.6ebcd6e5.chunk.css": "/ultimate-kanban/static/css/1.6ebcd6e5.chunk.css",
-  "static/js/1.ed35b3b7.chunk.js": "/ultimate-kanban/static/js/1.ed35b3b7.chunk.js",
-  "static/js/1.ed35b3b7.chunk.js.map": "/ultimate-kanban/static/js/1.ed35b3b7.chunk.js.map",
+  "static/js/1.63d6f0da.chunk.js": "/ultimate-kanban/static/js/1.63d6f0da.chunk.js",
+  "static/js/1.63d6f0da.chunk.js.map": "/ultimate-kanban/static/js/1.63d6f0da.chunk.js.map",
   "runtime~main.js": "/ultimate-kanban/static/js/runtime~main.e02d5132.js",
   "runtime~main.js.map": "/ultimate-kanban/static/js/runtime~main.e02d5132.js.map",
   "static/media/semantic.min.css": "/ultimate-kanban/static/media/brand-icons.a1a749e8.svg",
   "static/css/main.c894e17f.chunk.css.map": "/ultimate-kanban/static/css/main.c894e17f.chunk.css.map",
   "static/css/1.6ebcd6e5.chunk.css.map": "/ultimate-kanban/static/css/1.6ebcd6e5.chunk.css.map",
   "index.html": "/ultimate-kanban/index.html",
-  "precache-manifest.976431d5c90520f17d28aee10330df8b.js": "/ultimate-kanban/precache-manifest.976431d5c90520f17d28aee10330df8b.js",
+  "precache-manifest.33eebf954bd5d1d23a5c15b06f5affc8.js": "/ultimate-kanban/precache-manifest.33eebf954bd5d1d23a5c15b06f5affc8.js",
   "service-worker.js": "/ultimate-kanban/service-worker.js"
 }
