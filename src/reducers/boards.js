@@ -1,22 +1,22 @@
 import * as actionTypes from "actions/types";
 import { id0, id1, id2 } from "./lists";
 
-const id = 0;
-
 const defaultState = {
-  [id]: {
-    id: 0,
-    name: "tasks",
-    listIds: [id0, id1, id2],
-    editing: false
+  boards: {
+    0: {
+      id: 0,
+      name: "Development",
+      listIds: [id0, id1, id2],
+      editing: false
+    },
+    1: {
+      id: 1,
+      name: "Personal Project",
+      listIds: [id0],
+      editing: false
+    }
   },
-  1: {
-    id: 1,
-    name: "something!",
-    listIds: [id0],
-    editing: false
-  },
-  _boards: [0, 1]
+  boardIds: [0, 1]
 };
 
 export default (state = defaultState, action) => {
@@ -24,9 +24,9 @@ export default (state = defaultState, action) => {
     case actionTypes.CREATE_BOARD: {
       const { boardId } = action.payload;
       const newState = Object.assign({}, state);
-      if (!newState[boardId]) {
-        newState._boards.push(boardId);
-        newState[boardId] = action.payload;
+      if (!newState.boards[boardId]) {
+        newState.boardIds.push(boardId);
+        newState.boards[boardId] = action.payload;
       }
       return newState;
     }
@@ -34,9 +34,9 @@ export default (state = defaultState, action) => {
     case actionTypes.DELETE_LIST: {
       const { boardId, listId } = action.payload;
       const newState = Object.assign({}, state);
-      if (newState[boardId]) {
-        const index = newState[boardId].listIds.indexOf(listId);
-        newState[boardId].listIds.splice(index, 1);
+      if (newState.boards[boardId]) {
+        const index = newState.boards[boardId].listIds.indexOf(listId);
+        newState.boards[boardId].listIds.splice(index, 1);
       }
       return newState;
     }
@@ -44,8 +44,8 @@ export default (state = defaultState, action) => {
     case actionTypes.ATTACH_TO_BOARD: {
       const { boardId, listId } = action.payload;
       const newState = Object.assign({}, state);
-      if (newState[boardId]) {
-        newState[boardId].listIds.push(listId);
+      if (newState.boards[boardId]) {
+        newState.boards[boardId].listIds.push(listId);
       }
       return newState;
     }
@@ -53,9 +53,9 @@ export default (state = defaultState, action) => {
     case actionTypes.UPDATE_BOARD: {
       const { boardId, name, editing } = action.payload;
       const newState = Object.assign({}, state);
-      if (newState[boardId]) {
-        newState[boardId].name = name;
-        newState[boardId].editing = editing;
+      if (newState.boards[boardId]) {
+        newState.boards[boardId].name = name;
+        newState.boards[boardId].editing = editing;
       }
       return newState;
     }

@@ -9,10 +9,40 @@ import LinkButton from "./ui/LinkButton";
 import ClickCatcher from "./ui/ClickCatcher";
 import { pinBoardDrawer, toggleCreateBoardModal } from "actions/ui";
 
+const formatString = str => {
+  if (typeof str !== "string") {
+    throw new Error("input need to be string");
+  }
+  return str
+    .trim()
+    .toLowerCase()
+    .split(" ")
+    .join("");
+};
+
 class BoardDrawer extends React.Component {
+  boards = Object.values(this.props.boards);
+  state = {
+    filteredBoardIds: this.props.boardIds,
+    keyword: ""
+  };
+
+  handleSearch = e => {
+    this.setState({ keyword: e.target.value }, () => {
+      const keyword = formatString(this.state.keyword);
+      if (keyword === "") {
+        return this.setState({ filteredBoardIds: this.props.boardIds });
+      }
+      const filteredBoardIds = this.boards
+        .filter(board => formatString(board.name).includes(keyword))
+        .map(board => board.id);
+      this.setState({ filteredBoardIds });
+    });
+  };
+
   renderBoards = () => {
-    const { boardIds, boards } = this.props;
-    return boardIds.map(boardId => (
+    const { boards } = this.props;
+    return this.state.filteredBoardIds.map(boardId => (
       <Link to={`/${boardId}`} key={boardId}>
         <BoardCard {...boards[boardId]} onClick={this.props.onDismiss} />
       </Link>
@@ -48,7 +78,12 @@ class BoardDrawer extends React.Component {
         </div>
         <div className="board-drawer__content">
           <div className="board-drawer__content__search">
-            <Input fluid placeholder="Find boards by name..." />
+            <Input
+              fluid
+              placeholder="Find boards by name..."
+              value={this.state.keyword}
+              onChange={this.handleSearch}
+            />
           </div>
           <div className="board-drawer__content__boards">
             {this.renderBoards()}
@@ -71,8 +106,8 @@ class BoardDrawer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    boardIds: state.boards._boards,
-    boards: state.boards
+    boardIds: state.boards.boardIds,
+    boards: state.boards.boards
   };
 };
 
