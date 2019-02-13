@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "163e2cd032e2be8e6aa7",
+    "revision": "a29b9b57ea9ed2e65b1e",
     "url": "/ultimate-kanban/static/css/main.c894e17f.chunk.css"
   },
   {
@@ -28,6 +28,10 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/outline-icons.ef60a4f6.woff"
   },
   {
+    "revision": "9c74e172f87984c48ddf5c8108cabe67",
+    "url": "/ultimate-kanban/static/media/flags.9c74e172.png"
+  },
+  {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
     "url": "/ultimate-kanban/static/media/outline-icons.701ae6ab.eot"
   },
@@ -36,16 +40,12 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/outline-icons.ad97afd3.ttf"
   },
   {
-    "revision": "9c74e172f87984c48ddf5c8108cabe67",
-    "url": "/ultimate-kanban/static/media/flags.9c74e172.png"
-  },
-  {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
     "url": "/ultimate-kanban/static/media/icons.0ab54153.woff2"
   },
   {
-    "revision": "163e2cd032e2be8e6aa7",
-    "url": "/ultimate-kanban/static/js/main.163e2cd0.chunk.js"
+    "revision": "a29b9b57ea9ed2e65b1e",
+    "url": "/ultimate-kanban/static/js/main.a29b9b57.chunk.js"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/media/brand-icons.13db00b7.eot"
   },
   {
-    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
-    "url": "/ultimate-kanban/static/media/outline-icons.82f60bd0.svg"
-  },
-  {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
     "url": "/ultimate-kanban/static/media/brand-icons.c5ebe0b3.ttf"
+  },
+  {
+    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
+    "url": "/ultimate-kanban/static/media/outline-icons.82f60bd0.svg"
   },
   {
     "revision": "962a1bf31c081691065fe333d9fa8105",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/ultimate-kanban/static/css/1.6ebcd6e5.chunk.css"
   },
   {
-    "revision": "05cdb8471201ecb45b8a3ddaee080cf9",
+    "revision": "6d29e8a95390530b8780dd77ef039b3e",
     "url": "/ultimate-kanban/index.html"
   }
 ];
