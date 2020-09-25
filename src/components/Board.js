@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
 
 import List from "components/List";
 import Editable from "components/ui/Editable";
@@ -29,11 +28,7 @@ class Board extends React.Component {
     return boards[this.boardId].listIds.map(listId => {
       const list = lists[listId];
       return (
-        <List
-          key={list.id}
-          {...list}
-          onDelete={() => this.handleDeleteList(list.id)}
-        >
+        <List key={list.id} {...list} onDelete={() => this.handleDeleteList(list.id)}>
           <Editable
             id={list.id}
             content={list.name}
@@ -69,10 +64,7 @@ class Board extends React.Component {
           {this.renderLists()}
           <div className="board__content__add">
             <AddListButton
-              open={
-                this.props.addListEditor.open &&
-                this.boardId === this.props.addListEditor.boardId
-              }
+              open={this.props.addListEditor.open && this.boardId === this.props.addListEditor.boardId}
               boardId={this.boardId}
             />
           </div>
@@ -85,7 +77,7 @@ class Board extends React.Component {
 const mapStateToProps = state => ({
   boards: state.boards.boards,
   lists: state.lists,
-  addListEditor: state.ui.addListEditor
+  addListEditor: state.ui.addListEditor,
 });
 
 export default connect(
